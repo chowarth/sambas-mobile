@@ -2,7 +2,7 @@
 
 namespace Sambas.Mobile.Mvvm;
 
-internal class BaseViewModel : BindableBase, INavigationAware, IPageLifecycleAware, IDisposable
+internal abstract class BaseViewModel : BindableBase, INavigationAware, IPageLifecycleAware, IDisposable
 {
     #region INavigationAware
 

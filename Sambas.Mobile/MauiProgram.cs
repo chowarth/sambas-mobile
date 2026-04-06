@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Sambas.Mobile.SelectTeam;
 using Shiny;
 
 namespace Sambas.Mobile;
@@ -10,8 +11,8 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
-            .UseShinyShell(x =>
-                x.Add<MainPage, MainPageViewModel>(registerRoute: false)
+            .UseShinyShell(x => x
+                .Add<SelectTeamPage, SelectTeamPageViewModel>(registerRoute: false)
             )
             .ConfigureFonts(fonts =>
             {

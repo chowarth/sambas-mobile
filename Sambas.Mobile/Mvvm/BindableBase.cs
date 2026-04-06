@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Sambas.Mobile.Mvvm;
 
-internal class BinableBase : INotifyPropertyChanged
+internal class BindableBase : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 

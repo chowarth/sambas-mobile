@@ -1,10 +1,11 @@
-﻿namespace Sambas.Mobile
+﻿using Shiny;
+
+namespace Sambas.Mobile;
+
+public partial class AppShell : ShinyShell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

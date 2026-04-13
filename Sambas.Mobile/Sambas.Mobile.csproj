@@ -60,7 +60,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="SelectTeam\SelectTeamPage.xaml">
+	  <MauiXaml Update="Features\SelectTeam\SelectTeamPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

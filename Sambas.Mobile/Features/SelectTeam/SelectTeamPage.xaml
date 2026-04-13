@@ -2,20 +2,12 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Sambas.Mobile.SelectTeam.SelectTeamPage"
+    x:Class="Sambas.Mobile.Features.SelectTeam.SelectTeamPage"
     Title="Select Team"
     Shell.NavBarIsVisible="False">
 
-    <!-- TODO:
-        Add team button
-            Add team page
-                Name
-                LogoUrl
-                Squad
-    -->
     <Grid>
         <VerticalStackLayout
-            Spacing="16"
             BindableLayout.ItemsSource="{Binding Teams}"
             BindableLayout.EmptyView="Add a team...">
             <BindableLayout.ItemTemplate>
@@ -23,7 +15,6 @@
                     <Border
                         Style="{StaticResource CardStyle}">
                         <Grid
-                            Padding="16"
                             ColumnSpacing="16"
                             ColumnDefinitions="Auto, *">
                             <Image

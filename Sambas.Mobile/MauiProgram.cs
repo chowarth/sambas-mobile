@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using Sambas.Mobile.SelectTeam;
+using Sambas.Mobile.Features.SelectTeam;
 using Serilog;
 using Serilog.Templates;
 using Shiny;

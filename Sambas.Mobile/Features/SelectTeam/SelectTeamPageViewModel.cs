@@ -1,12 +1,16 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Windows.Input;
+using Microsoft.Extensions.Logging;
+using Sambas.Mobile.Features.EditTeam;
+using Sambas.Mobile.Models;
 using Sambas.Mobile.Mvvm;
+using Shiny;
 
-namespace Sambas.Mobile.SelectTeam;
-
-internal sealed record Team(Guid Id, string Name, string LogoUrl);
+namespace Sambas.Mobile.Features.SelectTeam;
 
 internal sealed class SelectTeamPageViewModel : BaseViewModel
 {
+    private readonly INavigator _navigator;
+
     private IList<Team> _teams = [
         new Team(
             Guid.NewGuid(),
@@ -21,8 +25,13 @@ internal sealed class SelectTeamPageViewModel : BaseViewModel
         set => SetProperty(ref _teams, value);
     }
 
-    public SelectTeamPageViewModel(ILogger<SelectTeamPageViewModel> logger)
+
+    public SelectTeamPageViewModel(
+        INavigator navigator,
+        ILogger<SelectTeamPageViewModel> logger)
         : base(logger)
     {
+        AddTeamCommand = new Command(async () => await AddTeamAsync());
+        _navigator = navigator;
     }
 }

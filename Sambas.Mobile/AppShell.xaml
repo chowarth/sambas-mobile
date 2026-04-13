@@ -4,12 +4,21 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:shiny="clr-namespace:Shiny;assembly=Shiny.Maui.Shell"
-    xmlns:local="clr-namespace:Sambas.Mobile.Features.SelectTeam"
-    Title="Sambas.Mobile">
+    xmlns:games="clr-namespace:Sambas.Mobile.Features.Games"
+    xmlns:tournaments="clr-namespace:Sambas.Mobile.Features.Tournaments">
 
-    <ShellContent
-        Title="Select Team"
-        ContentTemplate="{DataTemplate local:SelectTeamPage}"
-        Route="SelectTeamPage" />
+    <TabBar>
+        <!-- TODO: Tab icons -->
+        <ShellContent
+            Title="Games"
+            Route="GamesPage"
+            Shell.NavBarIsVisible="False"
+            ContentTemplate="{DataTemplate games:GamesPage}"/>
+        <ShellContent
+            Title="Tournaments"
+            Route="TournamentsPage"
+            Shell.NavBarIsVisible="False"
+            ContentTemplate="{DataTemplate tournaments:TournamentsPage}"/>
+    </TabBar>
 
 </shiny:ShinyShell>

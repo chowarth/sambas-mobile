@@ -56,11 +56,30 @@
 		<PackageReference Include="Serilog.Expressions" Version="5.0.0" />
 		<PackageReference Include="Serilog.Extensions.Logging" Version="10.0.0" />
 		<PackageReference Include="Serilog.Sinks.Debug" Version="3.0.0" />
+		<PackageReference Include="Shiny.DocumentDb.Sqlite" Version="3.2.0" />
 		<PackageReference Include="Shiny.Maui.Shell" Version="3.2.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Features\SelectTeam\SelectTeamPage.xaml">
+	  <Compile Update="AppStartupShell.xaml.cs">
+	    <DependentUpon>AppStartupShell.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Features\EditTeam\EditTeamPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Features\Games\GamesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Features\Startup\StartupPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Features\Tournaments\TournamentsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="AppStartupShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

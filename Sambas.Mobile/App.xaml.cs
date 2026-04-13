@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace Sambas.Mobile
+﻿namespace Sambas.Mobile
 {
     public partial class App : Application
     {
@@ -11,7 +9,7 @@ namespace Sambas.Mobile
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new AppShell());
+            return new Window(new AppStartupShell());
         }
     }
 }

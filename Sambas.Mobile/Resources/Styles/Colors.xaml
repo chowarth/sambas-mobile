@@ -9,7 +9,8 @@
     
     <!-- Light mode -->
     <Color x:Key="LightText">#000000</Color>
-    <Color x:Key="LightBackground">#F0F0F0</Color><!-- Default: #F0F0F0 / Alt: #E1E1E1 -->
+    <Color x:Key="LightBackground">#F0F0F0</Color>
+    <Color x:Key="LightBackgroundAlt">#E1E1E1</Color>
     <Color x:Key="LightCardBackground">#FFFFFF</Color>
     <Color x:Key="LightSuccess">#1B7F5C</Color>
     <Color x:Key="LightWarning">#B8871F</Color>
@@ -18,7 +19,8 @@
 
     <!-- Dark mode -->
     <Color x:Key="DarkText">#FFFFFF</Color>
-    <Color x:Key="DarkBackground">#282828</Color><!-- Default: #282828 / Alt: #3F3F3F -->
+    <Color x:Key="DarkBackground">#282828</Color>
+    <Color x:Key="DarkBackgroundAlt">#3F3F3F</Color>
     <Color x:Key="DarkCardBackground">#121212</Color>
     <Color x:Key="DarkSuccess">#22946E</Color>
     <Color x:Key="DarkWarning">#A87A2A</Color>

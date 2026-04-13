@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Sambas.Mobile.Features.Games.GamesPage">
+
+    <Grid>
+        <VerticalStackLayout>
+            <Label 
+                Text="Welcome to the Games page!"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <Button
+            Text="+"
+            Margin="16"
+            FontSize="24"
+            CornerRadius="24"
+            WidthRequest="48"
+            HeightRequest="48"
+            VerticalOptions="End"
+            HorizontalOptions="End"
+            Command="{Binding AddGameCommand}"/>
+    </Grid>
+    
+</ContentPage>

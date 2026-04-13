@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.Logging;
-using Sambas.Mobile.Features.SelectTeam;
+using Sambas.Mobile.Features.Startup;
+using Sambas.Mobile.Models;
 using Serilog;
 using Serilog.Templates;
 using Shiny;
+using Shiny.DocumentDb.Sqlite;
 
 namespace Sambas.Mobile;
 
@@ -14,7 +16,7 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
             .UseShinyShell(x => x
-                .Add<SelectTeamPage, SelectTeamPageViewModel>(registerRoute: false)
+                .Add<StartupPage, StartupPageViewModel>(registerRoute: false)
             )
             .ConfigureFonts(fonts =>
             {
@@ -24,7 +26,18 @@ public static class MauiProgram
 
         builder.Services.AddLogging(builder =>
             builder.ConfigureSerilog()
-        );
+        )
+        .AddSqliteDocumentStore(options =>
+        {
+            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "Sambas.db");
+
+            options.DatabaseProvider = new SqliteDatabaseProvider($"Data Source={dbPath}");
+            options.MapTypeToTable<Team>("teams", t => t.Id);
+        });
+
+        // Register this AppShell so that it can be used for navigation purposes by Shiny's INavigator.
+        // It will be resolved when used with navigator.SwitchShell<AppShell>().
+        builder.Services.AddTransient<AppShell>();
 
         return builder.Build();
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<shiny:ShinyShell
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:shiny="clr-namespace:Shiny;assembly=Shiny.Maui.Shell"
+    xmlns:local="clr-namespace:Sambas.Mobile.Features.Startup"
+    x:Class="Sambas.Mobile.AppStartupShell">
+
+    <ShellContent
+        Route="StartupPage"
+        Shell.NavBarIsVisible="False"
+        ContentTemplate="{DataTemplate local:StartupPage}"/>
+
+</shiny:ShinyShell>

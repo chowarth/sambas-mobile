@@ -10,10 +10,13 @@
     <Style TargetType="Button">
         <Setter Property="Shadow" Value="4, 4, 8, Black 0.25" />
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" />
+        <Setter Property="TextColor" Value="{StaticResource DarkText}" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
-        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="MinimumWidthRequest" Value="32" />
+        <Setter Property="MinimumHeightRequest" Value="32" />
         <!--<Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">
@@ -28,6 +31,14 @@
                 </VisualStateGroup>
             </VisualStateGroupList>
         </Setter>-->
+    </Style>
+
+    <Style TargetType="VerticalStackLayout">
+        <Setter Property="Spacing" Value="16" />
+    </Style>
+
+    <Style TargetType="HorizontalStackLayout">
+        <Setter Property="Spacing" Value="16" />
     </Style>
 
     <Style TargetType="Page" ApplyToDerivedTypes="True">
@@ -47,20 +58,19 @@
     <!-- TODO: Label styles -->
 
     <Style x:Key="CardStyle" TargetType="Border">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightCardBackground}, Dark={StaticResource DarkCardBackground}}" />
-        <Setter Property="Margin" Value="16"/>
-        <Setter Property="StrokeShape" Value="RoundRectangle 16" />
         <Setter Property="Shadow" Value="4, 4, 8, Black 0.25" />
+        <Setter Property="Margin" Value="16" />
+        <Setter Property="Padding" Value="16" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightCardBackground}, Dark={StaticResource DarkCardBackground}}" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 16" />
     </Style>
 
     <Style TargetType="Shell" ApplyToDerivedTypes="True">
         <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
-        <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}" />
+        <Setter Property="Shell.ForegroundColor" Value="{StaticResource DarkText}" />
         <Setter Property="Shell.TitleColor" Value="{StaticResource DarkText}" />
         <Setter Property="Shell.NavBarHasShadow" Value="False" />
-        <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-        <Setter Property="Shell.TabBarForegroundColor" Value="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}" />
-        <Setter Property="Shell.TabBarTitleColor" Value="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}" />
+        <Setter Property="Shell.UnselectedColor" Value="{StaticResource LightBackgroundAlt}"/>
     </Style>
 
 </ResourceDictionary>

@@ -1,13 +1,22 @@
-﻿using Shiny;
+﻿using Microsoft.Extensions.Logging;
+using Shiny;
 
 namespace Sambas.Mobile.Mvvm;
 
 internal abstract class BaseViewModel : BindableBase, INavigationAware, IPageLifecycleAware, IDisposable
 {
+    protected readonly ILogger<BaseViewModel> Logger;
+
+    protected BaseViewModel(ILogger<BaseViewModel> logger)
+    {
+        Logger = logger;
+    }
+
     #region INavigationAware
 
     void INavigationAware.OnNavigatingFrom(IDictionary<string, object> parameters)
     {
+        Logger.LogInformation(nameof(INavigationAware.OnNavigatingFrom));
         OnNavigatingFrom(parameters);
     }
 
@@ -21,6 +30,7 @@ internal abstract class BaseViewModel : BindableBase, INavigationAware, IPageLif
 
     void IPageLifecycleAware.OnAppearing()
     {
+        Logger.LogInformation(nameof(IPageLifecycleAware.OnAppearing));
         OnAppearing();
     }
 
@@ -30,6 +40,7 @@ internal abstract class BaseViewModel : BindableBase, INavigationAware, IPageLif
 
     void IPageLifecycleAware.OnDisappearing()
     {
+        Logger.LogInformation(nameof(IPageLifecycleAware.OnDisappearing));
         OnDisappearing();
     }
 
@@ -43,6 +54,7 @@ internal abstract class BaseViewModel : BindableBase, INavigationAware, IPageLif
 
     void IDisposable.Dispose()
     {
+        Logger.LogInformation(nameof(IDisposable.Dispose));
         Dispose();
     }
 

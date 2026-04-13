@@ -1,8 +1,9 @@
-﻿using Sambas.Mobile.Mvvm;
+﻿using Microsoft.Extensions.Logging;
+using Sambas.Mobile.Mvvm;
 
 namespace Sambas.Mobile;
 
-internal class MainPageViewModel()
-    : BaseViewModel
+internal sealed class MainPageViewModel(ILogger<MainPageViewModel> logger)
+    : BaseViewModel(logger)
 {
 }

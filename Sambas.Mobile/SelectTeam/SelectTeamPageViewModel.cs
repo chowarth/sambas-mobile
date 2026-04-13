@@ -1,4 +1,5 @@
-﻿using Sambas.Mobile.Mvvm;
+﻿using Microsoft.Extensions.Logging;
+using Sambas.Mobile.Mvvm;
 
 namespace Sambas.Mobile.SelectTeam;
 
@@ -18,5 +19,10 @@ internal sealed class SelectTeamPageViewModel : BaseViewModel
     {
         get => _teams;
         set => SetProperty(ref _teams, value);
+    }
+
+    public SelectTeamPageViewModel(ILogger<SelectTeamPageViewModel> logger)
+        : base(logger)
+    {
     }
 }

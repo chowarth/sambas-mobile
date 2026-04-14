@@ -1,11 +1,14 @@
 ﻿using IconFont.Maui.FluentIcons;
 using Microsoft.Extensions.Logging;
+using Sambas.Mobile.Features.Games;
 using Sambas.Mobile.Features.Startup;
+using Sambas.Mobile.Features.Tournaments;
 using Sambas.Mobile.Models;
 using Serilog;
 using Serilog.Templates;
 using Shiny;
 using Shiny.DocumentDb.Sqlite;
+using UXDivers.Popups.Maui;
 
 namespace Sambas.Mobile;
 
@@ -18,7 +21,10 @@ public static class MauiProgram
             .UseMauiApp<App>()
             .UseShinyShell(x => x
                 .Add<StartupPage, StartupPageViewModel>(registerRoute: false)
+                .Add<GamesPage, GamesPageViewModel>(registerRoute: false)
+                .Add<TournamentsPage, TournamentsPageViewModel>(registerRoute: false)
             )
+            .UseUXDiversPopups()
             .UseFluentIconsFilled()
             .ConfigureFonts(fonts =>
             {
@@ -26,7 +32,8 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
-        builder.Services.AddLogging(builder =>
+        builder.Services.AddPopupRegistrations()
+        .AddLogging(builder =>
             builder.ConfigureSerilog()
         )
         .AddSqliteDocumentStore(options =>
@@ -42,6 +49,13 @@ public static class MauiProgram
         builder.Services.AddTransient<AppShell>();
 
         return builder.Build();
+    }
+
+    private static IServiceCollection AddPopupRegistrations(this IServiceCollection services)
+    {
+        services.AddTransientPopup<EditGamePage, EditGamePageViewModel>();
+
+        return services;
     }
 
     private static void ConfigureSerilog(this ILoggingBuilder builder)

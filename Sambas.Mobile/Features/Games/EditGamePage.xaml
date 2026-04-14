@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    x:Class="Sambas.Mobile.Features.Games.EditGamePage"
+    BackgroundColor="#BF000000"
+    AppearingAnimation="{uxd:MoveInPopupAnimation
+        MoveDirection=Top, Duration=300, Easing=CubicOut}"
+    DisappearingAnimation="{uxd:MoveOutPopupAnimation
+        MoveDirection=Top, Duration=300, Easing=CubicIn}">
+
+    <Border
+        VerticalOptions="Start"
+        Style="{StaticResource CardStyle}">
+        <VerticalStackLayout
+            Spacing="16"
+            BackgroundColor="White">
+            <Entry
+                Placeholder="Team Name"
+                Text="{Binding Team.Name}"/>
+            <Entry
+                Placeholder="Logo URL"
+                Text="{Binding Team.LogoUrl}"/>
+            <Label
+                Text="Squad:"
+                FontAttributes="Bold"/>
+            <VerticalStackLayout
+                VerticalOptions="Start"
+                BindableLayout.ItemsSource="{Binding Squad}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            ColumnSpacing="16"
+                            ColumnDefinitions="*,*,Auto">
+                            <Entry
+                                Grid.Column="0"
+                                Placeholder="Forename"
+                                Text="{Binding Forename}"/>
+                            <Entry
+                                Grid.Column="1"
+                                Placeholder="Surname"
+                                Text="{Binding Surname}"/>
+                            <Button
+                                Grid.Column="2"
+                                Text="X"
+                                WidthRequest="32"
+                                HeightRequest="32"/>
+                            <!-- TODO: Handle remove player -->
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+            <Button
+                Text="Add Team"
+                VerticalOptions="End"
+                Command="{Binding SaveTeamCommand}"/>
+        </VerticalStackLayout>
+    </Border>
+
+</uxd:PopupPage>

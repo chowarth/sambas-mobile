@@ -5,11 +5,11 @@
     x:Class="Sambas.Mobile.Features.Games.GamesPage">
 
     <Grid>
-        <VerticalStackLayout>
+        <VerticalStackLayout
+            VerticalOptions="Center" 
+            HorizontalOptions="Center">
             <Label 
-                Text="Welcome to the Games page!"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
+                Text="Welcome to the Games page!"/>
         </VerticalStackLayout>
 
         <Button

@@ -1,21 +1,28 @@
 ﻿using System.Windows.Input;
 using Microsoft.Extensions.Logging;
 using Sambas.Mobile.Mvvm;
+using UXDivers.Popups.Services;
 
 namespace Sambas.Mobile.Features.Games;
 
 internal class GamesPageViewModel : BaseViewModel
 {
+    private readonly IPopupService _popupService;
+
     public ICommand AddGameCommand { get; init; }
 
-    public GamesPageViewModel(ILogger<GamesPageViewModel> logger)
+    public GamesPageViewModel(
+        IPopupService popupService,
+        ILogger<GamesPageViewModel> logger)
         : base(logger)
     {
+        _popupService = popupService;
+
         AddGameCommand = new Command(async () => await AddGameAsync());
     }
 
     private async Task AddGameAsync()
     {
-        // TODO: Implement the logic to add a new game, such as navigating to a new page or showing a dialog.
+        await _popupService.PushAsync<EditGamePage>();
     }
 }

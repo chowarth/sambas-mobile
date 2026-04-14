@@ -5,20 +5,30 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:shiny="clr-namespace:Shiny;assembly=Shiny.Maui.Shell"
     xmlns:games="clr-namespace:Sambas.Mobile.Features.Games"
+    xmlns:icons="clr-namespace:IconFont.Maui.FluentIcons;assembly=IconFont.Maui.FluentIcons"
     xmlns:tournaments="clr-namespace:Sambas.Mobile.Features.Tournaments">
 
     <TabBar>
-        <!-- TODO: Tab icons -->
-        <ShellContent
+        <Tab
             Title="Games"
-            Route="GamesPage"
-            Shell.NavBarIsVisible="False"
-            ContentTemplate="{DataTemplate games:GamesPage}"/>
-        <ShellContent
+            Icon="{FontImageSource
+                Glyph={x:Static icons:FluentIconsFilled.SportSoccer16},
+                FontFamily={x:Static icons:FluentIconsFilled.FontFamily}}">
+            <ShellContent
+                Route="GamesPage"
+                Shell.NavBarIsVisible="False"
+                ContentTemplate="{DataTemplate games:GamesPage}"/>
+        </Tab>
+        <Tab
             Title="Tournaments"
-            Route="TournamentsPage"
-            Shell.NavBarIsVisible="False"
-            ContentTemplate="{DataTemplate tournaments:TournamentsPage}"/>
+            Icon="{FontImageSource
+                Glyph={x:Static icons:FluentIconsFilled.Trophy16},
+                FontFamily={x:Static icons:FluentIconsFilled.FontFamily}}">
+            <ShellContent
+                Route="TournamentsPage"
+                Shell.NavBarIsVisible="False"
+                ContentTemplate="{DataTemplate tournaments:TournamentsPage}"/>
+        </Tab>
     </TabBar>
 
 </shiny:ShinyShell>

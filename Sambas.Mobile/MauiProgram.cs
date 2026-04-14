@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using IconFont.Maui.FluentIcons;
+using Microsoft.Extensions.Logging;
 using Sambas.Mobile.Features.Startup;
 using Sambas.Mobile.Models;
 using Serilog;
@@ -18,6 +19,7 @@ public static class MauiProgram
             .UseShinyShell(x => x
                 .Add<StartupPage, StartupPageViewModel>(registerRoute: false)
             )
+            .UseFluentIconsFilled()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

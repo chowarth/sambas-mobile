@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui">
 
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{StaticResource Primary}" />
@@ -41,21 +42,31 @@
         <Setter Property="Spacing" Value="16" />
     </Style>
 
-    <Style TargetType="Page" ApplyToDerivedTypes="True">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" />
-    </Style>
-    
-    <Style TargetType="NavigationPage">
-        <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
-        <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}" />
-        <Setter Property="IconColor" Value="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}" />
-    </Style>
-
     <Style TargetType="Label" ApplyToDerivedTypes="True">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
     </Style>
     <!-- TODO: Label styles -->
+
+    <Style TargetType="Entry">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular"/>
+        <Setter Property="HeightRequest" Value="40" />
+    </Style>
+
+    <Style TargetType="uxd:PopupPage" ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor" Value="{StaticResource PopupBackground}"/>
+    </Style>
+
+    <Style TargetType="Page" ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" />
+    </Style>
+
+    <Style TargetType="NavigationPage">
+        <Setter Property="IconColor" Value="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}" />
+        <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}" />
+        <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+    </Style>
 
     <Style x:Key="CardStyle" TargetType="Border">
         <Setter Property="Shadow" Value="4, 4, 8, Black 0.25" />
@@ -66,9 +77,9 @@
     </Style>
 
     <Style TargetType="Shell" ApplyToDerivedTypes="True">
+        <Setter Property="Shell.TitleColor" Value="{StaticResource DarkText}" />
         <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
         <Setter Property="Shell.ForegroundColor" Value="{StaticResource DarkText}" />
-        <Setter Property="Shell.TitleColor" Value="{StaticResource DarkText}" />
         <Setter Property="Shell.NavBarHasShadow" Value="False" />
         <Setter Property="Shell.UnselectedColor" Value="{StaticResource LightBackgroundAlt}"/>
     </Style>

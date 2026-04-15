@@ -66,8 +66,11 @@
 	  <Compile Update="Features\Matches\EditMatchPage.xaml.cs">
 	    <DependentUpon>EditMatchPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Features\Matches\MatchesPage.xaml.cs">
-	    <DependentUpon>MatchesPage.xaml</DependentUpon>
+	  <Compile Update="Features\Matches\MatchListPage.xaml.cs">
+	    <DependentUpon>MatchListPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Features\Tournaments\TournamentListPage.xaml.cs">
+	    <DependentUpon>TournamentListPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -75,13 +78,13 @@
 	  <MauiXaml Update="Features\Matches\EditMatchPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Features\Matches\MatchesPage.xaml">
+	  <MauiXaml Update="Features\Matches\MatchListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Features\Startup\StartupPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Features\Tournaments\TournamentsPage.xaml">
+	  <MauiXaml Update="Features\Tournaments\TournamentListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="AppStartupShell.xaml">

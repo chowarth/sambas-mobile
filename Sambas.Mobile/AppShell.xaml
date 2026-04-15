@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:shiny="clr-namespace:Shiny;assembly=Shiny.Maui.Shell"
-    xmlns:games="clr-namespace:Sambas.Mobile.Features.Games"
+    xmlns:matches="clr-namespace:Sambas.Mobile.Features.Matches"
     xmlns:icons="clr-namespace:IconFont.Maui.FluentIcons;assembly=IconFont.Maui.FluentIcons"
     xmlns:tournaments="clr-namespace:Sambas.Mobile.Features.Tournaments">
 
@@ -15,9 +15,9 @@
                 Glyph={x:Static icons:FluentIconsFilled.SportSoccer16},
                 FontFamily={x:Static icons:FluentIconsFilled.FontFamily}}">
             <ShellContent
-                Route="GamesPage"
+                Route="MatchListPage"
                 Shell.NavBarIsVisible="False"
-                ContentTemplate="{DataTemplate games:GamesPage}"/>
+                ContentTemplate="{DataTemplate matches:MatchListPage}"/>
         </Tab>
         <Tab
             Title="Tournaments"
@@ -25,9 +25,9 @@
                 Glyph={x:Static icons:FluentIconsFilled.Trophy16},
                 FontFamily={x:Static icons:FluentIconsFilled.FontFamily}}">
             <ShellContent
-                Route="TournamentsPage"
+                Route="TournamentListPage"
                 Shell.NavBarIsVisible="False"
-                ContentTemplate="{DataTemplate tournaments:TournamentsPage}"/>
+                ContentTemplate="{DataTemplate tournaments:TournamentListPage}"/>
         </Tab>
     </TabBar>
 

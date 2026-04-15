@@ -1,6 +1,6 @@
 ﻿using IconFont.Maui.FluentIcons;
 using Microsoft.Extensions.Logging;
-using Sambas.Mobile.Features.Games;
+using Sambas.Mobile.Features.Matches;
 using Sambas.Mobile.Features.Startup;
 using Sambas.Mobile.Features.Tournaments;
 using Sambas.Mobile.Models;
@@ -21,8 +21,8 @@ public static class MauiProgram
             .UseMauiApp<App>()
             .UseShinyShell(x => x
                 .Add<StartupPage, StartupPageViewModel>(registerRoute: false)
-                .Add<GamesPage, GamesPageViewModel>(registerRoute: false)
-                .Add<TournamentsPage, TournamentsPageViewModel>(registerRoute: false)
+                .Add<MatchListPage, MatchListPageViewModel>(registerRoute: false)
+                .Add<TournamentListPage, TournamentListPageViewModel>(registerRoute: false)
             )
             .UseUXDiversPopups()
             .UseFluentIconsFilled()
@@ -53,7 +53,7 @@ public static class MauiProgram
 
     private static IServiceCollection AddPopupRegistrations(this IServiceCollection services)
     {
-        services.AddTransientPopup<EditGamePage, EditGamePageViewModel>();
+        services.AddTransientPopup<EditMatchPage, EditMatchPageViewModel>();
 
         return services;
     }

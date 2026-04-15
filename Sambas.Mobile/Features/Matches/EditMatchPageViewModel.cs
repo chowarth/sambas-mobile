@@ -6,9 +6,9 @@ using Sambas.Mobile.Mvvm;
 using Shiny.DocumentDb;
 using UXDivers.Popups;
 
-namespace Sambas.Mobile.Features.Games;
+namespace Sambas.Mobile.Features.Matches;
 
-internal class EditGamePageViewModel : BaseViewModel, IPopupViewModel
+internal class EditMatchPageViewModel : BaseViewModel, IPopupViewModel
 {
     private readonly IDocumentStore _store;
 
@@ -32,7 +32,7 @@ internal class EditGamePageViewModel : BaseViewModel, IPopupViewModel
 
     public ICommand SaveTeamCommand { get; init; }
 
-    public EditGamePageViewModel(
+    public EditMatchPageViewModel(
         IDocumentStore store,
         ILogger<BaseViewModel> logger)
         : base(logger)

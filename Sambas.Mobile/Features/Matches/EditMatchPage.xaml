@@ -3,12 +3,16 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
-    x:Class="Sambas.Mobile.Features.Games.EditGamePage"
+    x:Class="Sambas.Mobile.Features.Matches.EditMatchPage"
     AppearingAnimation="{uxd:MoveInPopupAnimation
         MoveDirection=Top, Duration=300, Easing=CubicOut}"
     DisappearingAnimation="{uxd:MoveOutPopupAnimation
         MoveDirection=Top, Duration=300, Easing=CubicIn}">
 
+    <!-- TODO:
+        Re do the layout to handle match creation
+    -->
+    
     <Border
         VerticalOptions="Start"
         Style="{StaticResource CardStyle}">

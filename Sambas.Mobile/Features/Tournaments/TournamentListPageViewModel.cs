@@ -3,9 +3,9 @@ using Sambas.Mobile.Mvvm;
 
 namespace Sambas.Mobile.Features.Tournaments;
 
-internal class TournamentsPageViewModel : BaseViewModel
+internal class TournamentListPageViewModel : BaseViewModel
 {
-    public TournamentsPageViewModel(ILogger<TournamentsPageViewModel> logger)
+    public TournamentListPageViewModel(ILogger<TournamentListPageViewModel> logger)
         : base(logger)
     {
     }

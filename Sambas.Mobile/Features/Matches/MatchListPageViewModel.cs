@@ -3,17 +3,17 @@ using Microsoft.Extensions.Logging;
 using Sambas.Mobile.Mvvm;
 using UXDivers.Popups.Services;
 
-namespace Sambas.Mobile.Features.Games;
+namespace Sambas.Mobile.Features.Matches;
 
-internal class GamesPageViewModel : BaseViewModel
+internal class MatchListPageViewModel : BaseViewModel
 {
     private readonly IPopupService _popupService;
 
     public ICommand AddGameCommand { get; init; }
 
-    public GamesPageViewModel(
+    public MatchListPageViewModel(
         IPopupService popupService,
-        ILogger<GamesPageViewModel> logger)
+        ILogger<MatchListPageViewModel> logger)
         : base(logger)
     {
         _popupService = popupService;
@@ -23,6 +23,6 @@ internal class GamesPageViewModel : BaseViewModel
 
     private async Task AddGameAsync()
     {
-        await _popupService.PushAsync<EditGamePage>();
+        await _popupService.PushAsync<EditMatchPage>();
     }
 }

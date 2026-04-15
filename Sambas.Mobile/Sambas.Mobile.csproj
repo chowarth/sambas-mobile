@@ -63,10 +63,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Features\Games\EditGamePage.xaml">
+	  <Compile Update="Features\Matches\EditMatchPage.xaml.cs">
+	    <DependentUpon>EditMatchPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Features\Matches\MatchesPage.xaml.cs">
+	    <DependentUpon>MatchesPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Features\Matches\EditMatchPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Features\Games\GamesPage.xaml">
+	  <MauiXaml Update="Features\Matches\MatchesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Features\Startup\StartupPage.xaml">

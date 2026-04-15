@@ -2,13 +2,13 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Sambas.Mobile.Features.Tournaments.TournamentsPage">
+    x:Class="Sambas.Mobile.Features.Tournaments.TournamentListPage">
     
-    <VerticalStackLayout>
+    <VerticalStackLayout
+        VerticalOptions="Center" 
+        HorizontalOptions="Center">
         <Label 
-            Text="Welcome to the Tournaments page!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            Text="Welcome to the Tournaments page!"/>
     </VerticalStackLayout>
     
 </ContentPage>

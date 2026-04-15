@@ -1,8 +1,8 @@
 namespace Sambas.Mobile.Features.Tournaments;
 
-public partial class TournamentsPage : ContentPage
+public partial class TournamentListPage : ContentPage
 {
-    public TournamentsPage()
+    public TournamentListPage()
     {
         InitializeComponent();
     }

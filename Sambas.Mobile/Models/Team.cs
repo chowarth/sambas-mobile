@@ -20,6 +20,9 @@ internal sealed record Team
         ]
     );
 
+    public static Team Empty
+        = new(Guid.Empty, "", "", []);
+
     public Guid Id { get; init; }
     public string Name { get; init; }
     public string LogoUrl { get; init; }

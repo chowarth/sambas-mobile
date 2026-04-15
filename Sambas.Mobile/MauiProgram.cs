@@ -32,17 +32,18 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
-        builder.Services.AddPopupRegistrations()
-        .AddLogging(builder =>
-            builder.ConfigureSerilog()
-        )
-        .AddSqliteDocumentStore(options =>
-        {
-            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "Sambas.db");
+        builder.Services
+            .AddPopupRegistrations()
+            .AddLogging(builder =>
+                builder.ConfigureSerilog()
+            )
+            .AddSqliteDocumentStore(options =>
+            {
+                var dbPath = Path.Combine(FileSystem.AppDataDirectory, "Sambas.db");
 
-            options.DatabaseProvider = new SqliteDatabaseProvider($"Data Source={dbPath}");
-            options.MapTypeToTable<Team>("teams", t => t.Id);
-        });
+                options.DatabaseProvider = new SqliteDatabaseProvider($"Data Source={dbPath}");
+                options.MapTypeToTable<Team>("teams", t => t.Id);
+            });
 
         // Register this AppShell so that it can be used for navigation purposes by Shiny's INavigator.
         // It will be resolved when used with navigator.SwitchShell<AppShell>().

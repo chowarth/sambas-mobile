@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Microsoft.Extensions.Logging;
 using Sambas.Mobile.Models;
 using Sambas.Mobile.Mvvm;
@@ -8,29 +7,21 @@ using UXDivers.Popups;
 
 namespace Sambas.Mobile.Features.Matches;
 
+internal sealed record Match(Guid Id, Team HomeTeam, Team AwayTeam, DateTimeOffset KickOffUtc, Score score, IReadOnlyCollection<Goal> Goals);
+internal sealed record Score(int HomeTeamScore, int AwayTeamScore);
+internal sealed record Goal(Team ScoringTeam, Player ScoredBy, DateTimeOffset ScoredAtUtc);
+
 internal class EditMatchPageViewModel : BaseViewModel, IPopupViewModel
 {
     private readonly IDocumentStore _store;
 
-    private Team _team = new Team(Guid.Empty, "", "", []);
-    public Team Team
+    public Match Match
     {
-        get => _team;
-        set => SetProperty(ref _team, value);
+        get;
+        set => SetProperty(ref field, value);
     }
 
-    private ObservableCollection<Player> _squad = [
-        new Player("", ""),
-        new Player("", "")
-    ];
-
-    public ObservableCollection<Player> Squad
-    {
-        get => _squad;
-        set => SetProperty(ref _squad, value);
-    }
-
-    public ICommand SaveTeamCommand { get; init; }
+    public ICommand SaveMatchCommand { get; init; }
 
     public EditMatchPageViewModel(
         IDocumentStore store,
@@ -39,12 +30,30 @@ internal class EditMatchPageViewModel : BaseViewModel, IPopupViewModel
     {
         _store = store;
 
-        SaveTeamCommand = new Command(async () => await SaveTeamAsync());
+        SaveMatchCommand = new Command(async () => await SaveMatchAsync());
+
+        Match = new Match(
+            Guid.Empty,
+            Team.Sambas,
+            Team.Empty,
+            DateTimeOffset.UtcNow,
+            new Score(0, 0),
+            Array.Empty<Goal>()
+        );
     }
 
-    private async Task SaveTeamAsync()
+    private async Task SaveMatchAsync()
     {
-        await _store.Insert(Team);
+        // TODO: Handle match edit
+        // Pass an existing match to the popup when editing
+        // If Match.Id is empty, then it's a new match and we should insert it
+        // If Match.Id is not empty, then it's an existing match and we should update it
+
+        //await _store.Insert(Match);
+
+        // Return match to the caller
+        // await _popupService.PopAsync(Match);
+        await Task.CompletedTask;
     }
 
     Task IPopupViewModel.OnPopupNavigatedAsync(IReadOnlyDictionary<string, object?> parameters)

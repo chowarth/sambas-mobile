@@ -5,7 +5,7 @@
     x:Class="Sambas.Mobile.Controls.EntryControl"
     x:Name="Self"
     Padding="8"
-    Stroke="LightGray"
+    Stroke="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}"
     StrokeShape="RoundRectangle 8"
     HeightRequest="40">
 

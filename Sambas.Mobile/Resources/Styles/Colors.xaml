@@ -9,6 +9,8 @@
     <Color x:Key="PopupBackground">#BF000000</Color>
     
     <!-- Light mode -->
+
+    <Color x:Key="LightIcon">#000000</Color>
     <Color x:Key="LightText">#000000</Color>
     <Color x:Key="LightBackground">#F0F0F0</Color>
     <Color x:Key="LightBackgroundAlt">#E1E1E1</Color>
@@ -19,6 +21,7 @@
     <Color x:Key="LightInfo">#1E56A3</Color>
 
     <!-- Dark mode -->
+    <Color x:Key="DarkIcon">#FFFFFF</Color>
     <Color x:Key="DarkText">#FFFFFF</Color>
     <Color x:Key="DarkBackground">#282828</Color>
     <Color x:Key="DarkBackgroundAlt">#3F3F3F</Color>

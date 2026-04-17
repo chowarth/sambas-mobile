@@ -6,7 +6,7 @@
     x:Class="Sambas.Mobile.Controls.TimePickerControl"
     x:Name="Self"
     Padding="8"
-    Stroke="LightGray"
+    Stroke="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}"
     StrokeShape="RoundRectangle 8"
     HeightRequest="40">
 
@@ -32,6 +32,7 @@
             VerticalOptions="Center"
             HorizontalOptions="Start"
             Source="{FontImageSource
+                Color={AppThemeBinding Light={StaticResource LightIcon}, Dark={StaticResource DarkIcon}},
                 Glyph={x:Static icons:FluentIconsRegular.Clock24},
                 FontFamily={x:Static icons:FluentIconsRegular.FontFamily}}"/>
         <TimePicker

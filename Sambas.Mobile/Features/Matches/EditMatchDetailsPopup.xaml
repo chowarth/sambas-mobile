@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<uxd:PopupPage
+<uxd:PopupResultPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:Sambas.Mobile.Controls;assembly=Sambas.Mobile"
+    xmlns:local="clr-namespace:Sambas.Mobile.Features.Matches"
     xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
     x:Class="Sambas.Mobile.Features.Matches.EditMatchDetailsPopup"
+    x:TypeArguments="local:Match"
+    Result="{Binding Match}"
     AppearingAnimation="{uxd:MoveInPopupAnimation
         MoveDirection=Top, Duration=300, Easing=CubicOut}"
     DisappearingAnimation="{uxd:MoveOutPopupAnimation
@@ -103,4 +106,4 @@
         </VerticalStackLayout>
     </Border>
 
-</uxd:PopupPage>
+</uxd:PopupResultPage>

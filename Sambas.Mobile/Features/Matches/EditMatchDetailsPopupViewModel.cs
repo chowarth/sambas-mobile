@@ -4,18 +4,14 @@ using Sambas.Mobile.Models;
 using Sambas.Mobile.Mvvm;
 using Shiny.DocumentDb;
 using UXDivers.Popups;
+using UXDivers.Popups.Services;
 
 namespace Sambas.Mobile.Features.Matches;
 
-internal sealed record KickOff(DateTime? Date = null, TimeSpan? Time = null);
-internal sealed record Match(Guid Id, Team HomeTeam, Team AwayTeam, KickOff KickOff, Score score, IReadOnlyCollection<Goal> Goals);
-internal sealed record Score(int HomeTeamScore = 0, int AwayTeamScore = 0);
-internal sealed record Goal(Team ScoringTeam, Player ScoredBy, DateTimeOffset ScoredAtUtc);
-
-// TODO: Rename this to EditMatchDetailsPopup
 internal class EditMatchDetailsPopupViewModel : BaseViewModel, IPopupViewModel
 {
     private readonly IDocumentStore _store;
+    private readonly IPopupService _popupService;
 
     public Match Match
     {
@@ -27,10 +23,12 @@ internal class EditMatchDetailsPopupViewModel : BaseViewModel, IPopupViewModel
 
     public EditMatchDetailsPopupViewModel(
         IDocumentStore store,
+        IPopupService popupService,
         ILogger<BaseViewModel> logger)
         : base(logger)
     {
         _store = store;
+        _popupService = popupService;
 
         SaveMatchCommand = new Command(async () => await SaveMatchAsync());
 
@@ -51,11 +49,11 @@ internal class EditMatchDetailsPopupViewModel : BaseViewModel, IPopupViewModel
         // If Match.Id is empty, then it's a new match and we should insert it
         // If Match.Id is not empty, then it's an existing match and we should update it
 
-        //await _store.Insert(Match);
+        await _store.Insert(Match);
 
-        // Return match to the caller
-        // await _popupService.PopAsync(Match);
-        await Task.CompletedTask;
+        // Return values for popups should be bound to the page 'Result' property, see:
+        // https://github.com/UXDivers/uxd-popups/issues/32
+        await _popupService.PopAsync();
     }
 
     // TODO: Create base popup viewmodel

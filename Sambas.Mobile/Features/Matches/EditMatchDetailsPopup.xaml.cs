@@ -2,7 +2,7 @@ using UXDivers.Popups.Maui;
 
 namespace Sambas.Mobile.Features.Matches;
 
-public partial class EditMatchDetailsPopup : PopupPage
+public partial class EditMatchDetailsPopup : PopupResultPage<Match>
 {
     public EditMatchDetailsPopup()
     {

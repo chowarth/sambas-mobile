@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using Microsoft.Extensions.Logging;
+using Sambas.Mobile.Models;
 using Sambas.Mobile.Mvvm;
 using UXDivers.Popups.Services;
 

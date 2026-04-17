@@ -3,10 +3,10 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:Sambas.Mobile.Controls;assembly=Sambas.Mobile"
-    xmlns:local="clr-namespace:Sambas.Mobile.Features.Matches"
+    xmlns:models="clr-namespace:Sambas.Mobile.Models"
     xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
     x:Class="Sambas.Mobile.Features.Matches.EditMatchDetailsPopup"
-    x:TypeArguments="local:Match"
+    x:TypeArguments="models:Match"
     Result="{Binding Match}"
     AppearingAnimation="{uxd:MoveInPopupAnimation
         MoveDirection=Top, Duration=300, Easing=CubicOut}"

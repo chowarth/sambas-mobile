@@ -45,6 +45,7 @@ public static class MauiProgram
 
                 options.DatabaseProvider = new SqliteDatabaseProvider($"Data Source={dbPath}");
                 options.MapTypeToTable<Team>("teams", t => t.Id);
+                options.MapTypeToTable<Match>("matches", t => t.Id);
             });
 
         // Register this AppShell so that it can be used for navigation purposes by Shiny's INavigator.

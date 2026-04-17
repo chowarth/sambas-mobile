@@ -3,12 +3,11 @@ using Microsoft.Extensions.Logging;
 using Sambas.Mobile.Models;
 using Sambas.Mobile.Mvvm;
 using Shiny.DocumentDb;
-using UXDivers.Popups;
 using UXDivers.Popups.Services;
 
 namespace Sambas.Mobile.Features.Matches;
 
-internal class EditMatchDetailsPopupViewModel : BaseViewModel, IPopupViewModel
+internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
 {
     private readonly IDocumentStore _store;
     private readonly IPopupService _popupService;
@@ -51,14 +50,8 @@ internal class EditMatchDetailsPopupViewModel : BaseViewModel, IPopupViewModel
 
         await _store.Insert(Match);
 
-        // Return values for popups should be bound to the page 'Result' property, see:
-        // https://github.com/UXDivers/uxd-popups/issues/32
+        // Return values for popups should be bound to the page 'Result' property,
+        // see: https://github.com/UXDivers/uxd-popups/issues/32
         await _popupService.PopAsync();
-    }
-
-    // TODO: Create base popup viewmodel
-    Task IPopupViewModel.OnPopupNavigatedAsync(IReadOnlyDictionary<string, object?> parameters)
-    {
-        return Task.CompletedTask;
     }
 }

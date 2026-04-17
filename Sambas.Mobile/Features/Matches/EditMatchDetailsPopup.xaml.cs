@@ -1,3 +1,4 @@
+using Sambas.Mobile.Models;
 using UXDivers.Popups.Maui;
 
 namespace Sambas.Mobile.Features.Matches;

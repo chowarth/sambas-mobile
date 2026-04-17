@@ -26,6 +26,7 @@ public static class MauiProgram
             )
             .UseUXDiversPopups()
             .UseFluentIconsFilled()
+            .CustomiseHandlers()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -57,6 +58,30 @@ public static class MauiProgram
         services.AddTransientPopup<EditMatchPage, EditMatchPageViewModel>();
 
         return services;
+    }
+
+    private static MauiAppBuilder CustomiseHandlers(this MauiAppBuilder builder)
+    {
+#if ANDROID
+        Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("SambasEntryCustomisation", (handler, view) =>
+        {
+            handler.PlatformView.BackgroundTintList = Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
+            handler.PlatformView.SetPadding(0, 0, 0, 0);
+        });
+
+        Microsoft.Maui.Handlers.DatePickerHandler.Mapper.AppendToMapping("SambasEntryCustomisation", (handler, view) =>
+        {
+            handler.PlatformView.BackgroundTintList = Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
+            handler.PlatformView.SetPadding(0, 0, 0, 0);
+        });
+
+        Microsoft.Maui.Handlers.TimePickerHandler.Mapper.AppendToMapping("SambasEntryCustomisation", (handler, view) =>
+        {
+            handler.PlatformView.BackgroundTintList = Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
+            handler.PlatformView.SetPadding(0, 0, 0, 0);
+        });
+#endif
+        return builder;
     }
 
     private static void ConfigureSerilog(this ILoggingBuilder builder)

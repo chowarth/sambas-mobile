@@ -2,7 +2,7 @@
 
 namespace Sambas.Mobile.Models;
 
-internal sealed record Team
+public sealed record Team
 {
     public static Team Sambas = new(
         Guid.Parse("4ce41864-7a9b-4c40-949b-c8041b1f1f0f"),
@@ -21,7 +21,7 @@ internal sealed record Team
     );
 
     public static Team Empty
-        = new(Guid.Empty, "", "", []);
+        => new(Guid.Empty, "", "", []);
 
     public Guid Id { get; init; }
     public string Name { get; init; }

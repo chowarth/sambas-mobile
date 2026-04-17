@@ -2,8 +2,9 @@
 <uxd:PopupPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Sambas.Mobile.Controls;assembly=Sambas.Mobile"
     xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
-    x:Class="Sambas.Mobile.Features.Matches.EditMatchPage"
+    x:Class="Sambas.Mobile.Features.Matches.EditMatchDetailsPopup"
     AppearingAnimation="{uxd:MoveInPopupAnimation
         MoveDirection=Top, Duration=300, Easing=CubicOut}"
     DisappearingAnimation="{uxd:MoveOutPopupAnimation
@@ -22,7 +23,7 @@
                 BackgroundColor="{StaticResource Primary}"/>
             <!-- Teams Section -->
             <Grid
-                RowSpacing="16"
+                RowSpacing="8"
                 ColumnSpacing="16"
                 RowDefinitions="Auto,Auto,Auto"
                 ColumnDefinitions="*,Auto,*">
@@ -35,23 +36,24 @@
                     Grid.Column="0"
                     Text="Home"
                     FontSize="12"/>
-                <Entry
+                <controls:EntryControl
                     Grid.Row="2"
                     Grid.Column="0"
-                    IsReadOnly="True"
-                    Text="{Binding Match.HomeTeam.Name}"/>
+                    Text="{Binding Match.HomeTeam.Name}"
+                    IsReadOnly="True"/>
 
                 <Label
                     Grid.Row="2"
                     Grid.Column="1"
-                    Text="vs"/>
+                    Text="vs"
+                    VerticalOptions="Center"/>
 
                 <Label
                     Grid.Row="1"
                     Grid.Column="2"
                     Text="Away"
                     FontSize="12"/>
-                <Entry
+                <controls:EntryControl
                     Grid.Row="2"
                     Grid.Column="2"
                     Text="{Binding Match.AwayTeam.Name}"/>
@@ -62,7 +64,7 @@
                 HeightRequest="1"
                 BackgroundColor="{StaticResource Primary}"/>
             <Grid
-                RowSpacing="16"
+                RowSpacing="8"
                 ColumnSpacing="16"
                 RowDefinitions="*,Auto,*"
                 ColumnDefinitions="*,*">
@@ -75,18 +77,22 @@
                     Grid.Column="0"
                     Text="Date"
                     FontSize="12"/>
-                <DatePicker
+                <!-- Add date icon to control -->
+                <controls:DatePickerControl
                     Grid.Row="2"
-                    Grid.Column="0"/>
+                    Grid.Column="0"
+                    Date="{Binding Match.KickOff.Date}"/>
 
                 <Label
                     Grid.Row="1"
                     Grid.Column="1"
                     Text="Time"
                     FontSize="12"/>
-                <TimePicker
+                <!-- Add time icon to control -->
+                <controls:TimePickerControl
                     Grid.Row="2"
-                    Grid.Column="1"/>
+                    Grid.Column="1"
+                    Time="{Binding Match.KickOff.Time}"/>
             </Grid>
             
             <Button

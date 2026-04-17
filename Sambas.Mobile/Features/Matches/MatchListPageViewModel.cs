@@ -23,6 +23,6 @@ internal class MatchListPageViewModel : BaseViewModel
 
     private async Task AddGameAsync()
     {
-        await _popupService.PushAsync<EditMatchPage>();
+        await _popupService.PushAsync<EditMatchDetailsPopup>();
     }
 }

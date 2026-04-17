@@ -2,9 +2,9 @@ using UXDivers.Popups.Maui;
 
 namespace Sambas.Mobile.Features.Matches;
 
-public partial class EditMatchPage : PopupPage
+public partial class EditMatchDetailsPopup : PopupPage
 {
-    public EditMatchPage()
+    public EditMatchDetailsPopup()
     {
         InitializeComponent();
     }

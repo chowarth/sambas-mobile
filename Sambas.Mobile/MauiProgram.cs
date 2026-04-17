@@ -55,7 +55,7 @@ public static class MauiProgram
 
     private static IServiceCollection AddPopupRegistrations(this IServiceCollection services)
     {
-        services.AddTransientPopup<EditMatchPage, EditMatchPageViewModel>();
+        services.AddTransientPopup<EditMatchDetailsPopup, EditMatchDetailsPopupViewModel>();
 
         return services;
     }

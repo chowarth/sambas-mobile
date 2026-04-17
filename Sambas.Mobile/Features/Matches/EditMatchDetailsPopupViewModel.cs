@@ -12,7 +12,8 @@ internal sealed record Match(Guid Id, Team HomeTeam, Team AwayTeam, KickOff Kick
 internal sealed record Score(int HomeTeamScore = 0, int AwayTeamScore = 0);
 internal sealed record Goal(Team ScoringTeam, Player ScoredBy, DateTimeOffset ScoredAtUtc);
 
-internal class EditMatchPageViewModel : BaseViewModel, IPopupViewModel
+// TODO: Rename this to EditMatchDetailsPopup
+internal class EditMatchDetailsPopupViewModel : BaseViewModel, IPopupViewModel
 {
     private readonly IDocumentStore _store;
 
@@ -24,7 +25,7 @@ internal class EditMatchPageViewModel : BaseViewModel, IPopupViewModel
 
     public ICommand SaveMatchCommand { get; init; }
 
-    public EditMatchPageViewModel(
+    public EditMatchDetailsPopupViewModel(
         IDocumentStore store,
         ILogger<BaseViewModel> logger)
         : base(logger)
@@ -57,6 +58,7 @@ internal class EditMatchPageViewModel : BaseViewModel, IPopupViewModel
         await Task.CompletedTask;
     }
 
+    // TODO: Create base popup viewmodel
     Task IPopupViewModel.OnPopupNavigatedAsync(IReadOnlyDictionary<string, object?> parameters)
     {
         return Task.CompletedTask;

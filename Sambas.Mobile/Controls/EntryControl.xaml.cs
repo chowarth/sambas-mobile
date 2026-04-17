@@ -14,6 +14,18 @@ public partial class EntryControl : Border
         set => SetValue(TextProperty, value);
     }
 
+    public static readonly BindableProperty KeyboardProperty = BindableProperty.Create(
+        nameof(Keyboard),
+        typeof(Keyboard),
+        typeof(EntryControl),
+        defaultValue: Keyboard.Default);
+
+    public Keyboard Keyboard
+    {
+        get => (Keyboard)GetValue(KeyboardProperty);
+        set => SetValue(KeyboardProperty, value);
+    }
+
     public static readonly BindableProperty IsReadOnlyProperty = BindableProperty.Create(
         nameof(IsReadOnly),
         typeof(bool),

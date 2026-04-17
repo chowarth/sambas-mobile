@@ -36,6 +36,12 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
         set => SetProperty(ref field, value);
     } = KickOff.Default;
 
+    public Score Score
+    {
+        get;
+        set => SetProperty(ref field, value);
+    } = Score.Default;
+
     public ICommand SaveMatchCommand { get; init; }
 
     public EditMatchDetailsPopupViewModel(
@@ -61,7 +67,7 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
             HomeTeam,
             AwayTeam,
             KickOff,
-            Score.Default,
+            Score,
             Array.Empty<Goal>()
         );
         await _store.Insert(match);

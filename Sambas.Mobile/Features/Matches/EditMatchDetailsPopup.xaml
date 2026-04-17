@@ -8,6 +8,7 @@
     x:Class="Sambas.Mobile.Features.Matches.EditMatchDetailsPopup"
     x:TypeArguments="models:Match"
     Result="{Binding Match}"
+    CloseWhenBackgroundIsClicked="True"
     AppearingAnimation="{uxd:MoveInPopupAnimation
         MoveDirection=Top, Duration=300, Easing=CubicOut}"
     DisappearingAnimation="{uxd:MoveOutPopupAnimation
@@ -21,10 +22,10 @@
                 Text="Edit Match Details"
                 FontSize="18"
                 FontAttributes="Bold"/>
+            <!-- Teams Section -->
             <BoxView
                 HeightRequest="1"
                 BackgroundColor="{StaticResource Primary}"/>
-            <!-- Teams Section -->
             <Grid
                 RowSpacing="8"
                 ColumnSpacing="16"
@@ -44,13 +45,11 @@
                     Grid.Column="0"
                     Text="{Binding HomeTeam.Name}"
                     IsReadOnly="True"/>
-
                 <Label
                     Grid.Row="2"
                     Grid.Column="1"
                     Text="vs"
                     VerticalOptions="Center"/>
-
                 <Label
                     Grid.Row="1"
                     Grid.Column="2"
@@ -62,6 +61,46 @@
                     Text="{Binding AwayTeam.Name}"/>
             </Grid>
             
+            <!-- Score Section -->
+            <BoxView
+                HeightRequest="1"
+                BackgroundColor="{StaticResource Primary}"/>
+            <Grid
+                RowSpacing="8"
+                ColumnSpacing="16"
+                RowDefinitions="Auto,Auto,Auto"
+                ColumnDefinitions="*,Auto,*">
+                <Label
+                    Grid.Row="0"
+                    Text="SCORE"
+                    FontSize="14"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Home"
+                    FontSize="12"/>
+                <controls:EntryControl
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Keyboard="Numeric"
+                    Text="{Binding Score.HomeTeamScore, FallbackValue='-'}"/>
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Text="-"
+                    VerticalOptions="Center"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Text="Away"
+                    FontSize="12"/>
+                <controls:EntryControl
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Keyboard="Numeric"
+                    Text="{Binding Score.AwayTeamScore, FallbackValue='-'}"/>
+            </Grid>
+
             <!-- Kick-Off Section -->
             <BoxView
                 HeightRequest="1"
@@ -95,7 +134,7 @@
                     Grid.Column="1"
                     Time="{Binding KickOff.Time}"/>
             </Grid>
-            
+
             <Button
                 Text="Save Match"
                 VerticalOptions="End"

@@ -23,6 +23,7 @@
     <Entry
         x:Name="Entry"
         Text="{Binding Source={x:Reference Self}, Path=Text}"
+        Keyboard="{Binding Source={x:Reference Self}, Path=Keyboard}"
         IsReadOnly="{Binding Source={x:Reference Self}, Path=IsReadOnly}"/>
 
 </Border>

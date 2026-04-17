@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Microsoft.Extensions.Logging;
 using Sambas.Mobile.Models;
 using Sambas.Mobile.Mvvm;
@@ -12,13 +13,14 @@ internal class MatchListPageViewModel : BaseViewModel
     private readonly IDocumentStore _store;
     private readonly IPopupService _popupService;
 
-    public ICommand AddGameCommand { get; init; }
+    public ICommand AddMatchCommand { get; init; }
+    public ICommand DeleteMatchCommand { get; init; }
 
-    public IReadOnlyList<Match>? Matches
+    public ObservableCollection<Match> Matches
     {
         get;
         set => SetProperty(ref field, value);
-    }
+    } = new ObservableCollection<Match>();
 
     public MatchListPageViewModel(
         IDocumentStore store,
@@ -29,7 +31,8 @@ internal class MatchListPageViewModel : BaseViewModel
         _store = store;
         _popupService = popupService;
 
-        AddGameCommand = new Command(async () => await AddGameAsync());
+        AddMatchCommand = new Command(async () => await AddMatchAsync());
+        DeleteMatchCommand = new Command<Match>(async (m) => await DeleteMatchAsync(m));
     }
 
     public override async void OnAppearing()
@@ -41,13 +44,22 @@ internal class MatchListPageViewModel : BaseViewModel
 
     private async Task LoadMatches()
     {
-        Matches = await _store.Query<Match>().ToList();
+        var matches = await _store.Query<Match>().ToList();
+
+        foreach (Match match in matches)
+            Matches.Add(match);
     }
 
-    private async Task AddGameAsync()
+    private async Task AddMatchAsync()
     {
         var createdMatch = await _popupService.PushAsync<EditMatchDetailsPopup, Match>();
         if (createdMatch is not null)
             await LoadMatches();
+    }
+
+    private async Task DeleteMatchAsync(Match match)
+    {
+        if (await _store.Remove<Match>(match.Id))
+            Matches.Remove(match);
     }
 }

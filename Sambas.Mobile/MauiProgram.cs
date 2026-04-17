@@ -26,6 +26,7 @@ public static class MauiProgram
             )
             .UseUXDiversPopups()
             .UseFluentIconsFilled()
+            .UseFluentIconsRegular()
             .CustomiseHandlers()
             .ConfigureFonts(fonts =>
             {

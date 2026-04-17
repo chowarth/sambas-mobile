@@ -80,7 +80,6 @@
                     Grid.Column="0"
                     Text="Date"
                     FontSize="12"/>
-                <!-- Add date icon to control -->
                 <controls:DatePickerControl
                     Grid.Row="2"
                     Grid.Column="0"
@@ -91,7 +90,6 @@
                     Grid.Column="1"
                     Text="Time"
                     FontSize="12"/>
-                <!-- Add time icon to control -->
                 <controls:TimePickerControl
                     Grid.Row="2"
                     Grid.Column="1"

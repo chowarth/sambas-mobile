@@ -3,7 +3,6 @@ using Microsoft.Extensions.Logging;
 using Sambas.Mobile.Features.Matches;
 using Sambas.Mobile.Features.Startup;
 using Sambas.Mobile.Features.Tournaments;
-using Sambas.Mobile.Models;
 using Serilog;
 using Serilog.Templates;
 using Shiny;
@@ -42,10 +41,9 @@ public static class MauiProgram
             .AddSqliteDocumentStore(options =>
             {
                 var dbPath = Path.Combine(FileSystem.AppDataDirectory, "Sambas.db");
-
                 options.DatabaseProvider = new SqliteDatabaseProvider($"Data Source={dbPath}");
-                options.MapTypeToTable<Team>("teams", t => t.Id);
-                options.MapTypeToTable<Match>("matches", t => t.Id);
+                //options.MapTypeToTable<Team>("teams", t => t.Id)
+                //options.MapTypeToTable<Match>("matches", t => t.Id);
             });
 
         // Register this AppShell so that it can be used for navigation purposes by Shiny's INavigator.

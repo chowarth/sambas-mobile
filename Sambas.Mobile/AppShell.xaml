@@ -10,7 +10,7 @@
 
     <TabBar>
         <Tab
-            Title="Games"
+            Title="Matches"
             Icon="{FontImageSource
                 Glyph={x:Static icons:FluentIconsFilled.SportSoccer16},
                 FontFamily={x:Static icons:FluentIconsFilled.FontFamily}}">

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using Sambas.Mobile.Models;
 using Sambas.Mobile.Mvvm;
 using Shiny;
 using Shiny.DocumentDb;
@@ -25,19 +24,7 @@ internal class StartupPageViewModel : BaseViewModel
     {
         base.OnAppearing();
 
-        await InitialiseAsync();
-
-        await _navigator.SwitchShell<AppShell>();
-    }
-
-    private async Task InitialiseAsync()
-    {
-        var sambas = await _store.Get<Team>(Team.Sambas.Id);
-        if (sambas is null)
-        {
-            await _store.Insert(Team.Sambas);
-        }
-
         await Task.Delay(1_000);
+        await _navigator.SwitchShell<AppShell>();
     }
 }

@@ -7,8 +7,9 @@ using UXDivers.Popups;
 
 namespace Sambas.Mobile.Features.Matches;
 
-internal sealed record Match(Guid Id, Team HomeTeam, Team AwayTeam, DateTimeOffset KickOffUtc, Score score, IReadOnlyCollection<Goal> Goals);
-internal sealed record Score(int HomeTeamScore, int AwayTeamScore);
+internal sealed record KickOff(DateTime? Date = null, TimeSpan? Time = null);
+internal sealed record Match(Guid Id, Team HomeTeam, Team AwayTeam, KickOff KickOff, Score score, IReadOnlyCollection<Goal> Goals);
+internal sealed record Score(int HomeTeamScore = 0, int AwayTeamScore = 0);
 internal sealed record Goal(Team ScoringTeam, Player ScoredBy, DateTimeOffset ScoredAtUtc);
 
 internal class EditMatchPageViewModel : BaseViewModel, IPopupViewModel
@@ -36,8 +37,8 @@ internal class EditMatchPageViewModel : BaseViewModel, IPopupViewModel
             Guid.Empty,
             Team.Sambas,
             Team.Empty,
-            DateTimeOffset.UtcNow,
-            new Score(0, 0),
+            new KickOff(),
+            new Score(),
             Array.Empty<Goal>()
         );
     }

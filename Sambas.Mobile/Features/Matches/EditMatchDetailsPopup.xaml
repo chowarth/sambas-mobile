@@ -42,7 +42,7 @@
                 <controls:EntryControl
                     Grid.Row="2"
                     Grid.Column="0"
-                    Text="{Binding Match.HomeTeam.Name}"
+                    Text="{Binding HomeTeam.Name}"
                     IsReadOnly="True"/>
 
                 <Label
@@ -59,7 +59,7 @@
                 <controls:EntryControl
                     Grid.Row="2"
                     Grid.Column="2"
-                    Text="{Binding Match.AwayTeam.Name}"/>
+                    Text="{Binding AwayTeam.Name}"/>
             </Grid>
             
             <!-- Kick-Off Section -->
@@ -83,7 +83,7 @@
                 <controls:DatePickerControl
                     Grid.Row="2"
                     Grid.Column="0"
-                    Date="{Binding Match.KickOff.Date}"/>
+                    Date="{Binding KickOff.Date}"/>
 
                 <Label
                     Grid.Row="1"
@@ -93,7 +93,7 @@
                 <controls:TimePickerControl
                     Grid.Row="2"
                     Grid.Column="1"
-                    Time="{Binding Match.KickOff.Time}"/>
+                    Time="{Binding KickOff.Time}"/>
             </Grid>
             
             <Button

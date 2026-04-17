@@ -12,11 +12,29 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
     private readonly IDocumentStore _store;
     private readonly IPopupService _popupService;
 
-    public Match Match
+    public Match? Match
     {
         get;
         set => SetProperty(ref field, value);
     }
+
+    public Team HomeTeam
+    {
+        get;
+        set => SetProperty(ref field, value);
+    } = Team.Sambas;
+
+    public Team AwayTeam
+    {
+        get;
+        set => SetProperty(ref field, value);
+    } = Team.Empty;
+
+    public KickOff KickOff
+    {
+        get;
+        set => SetProperty(ref field, value);
+    } = KickOff.Default;
 
     public ICommand SaveMatchCommand { get; init; }
 
@@ -30,15 +48,6 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
         _popupService = popupService;
 
         SaveMatchCommand = new Command(async () => await SaveMatchAsync());
-
-        Match = new Match(
-            Guid.Empty,
-            Team.Sambas,
-            Team.Empty,
-            new KickOff(),
-            new Score(),
-            Array.Empty<Goal>()
-        );
     }
 
     private async Task SaveMatchAsync()
@@ -47,8 +56,16 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
         // Pass an existing match to the popup when editing
         // If Match.Id is empty, then it's a new match and we should insert it
         // If Match.Id is not empty, then it's an existing match and we should update it
-
-        await _store.Insert(Match);
+        var match = new Match(
+            Guid.Empty,
+            HomeTeam,
+            AwayTeam,
+            KickOff,
+            Score.Default,
+            Array.Empty<Goal>()
+        );
+        await _store.Insert(match);
+        Match = match;
 
         // Return values for popups should be bound to the page 'Result' property,
         // see: https://github.com/UXDivers/uxd-popups/issues/32

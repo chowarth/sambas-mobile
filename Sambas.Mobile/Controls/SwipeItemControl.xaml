@@ -7,7 +7,6 @@
 
     <ImageButton
         Source="{Binding Source={x:Reference Self}, Path=ActionIcon}"
-        Margin="16"
         Aspect="Center"
         WidthRequest="75"
         CornerRadius="{Binding Source={x:Reference Self}, Path=CornerRadius}"

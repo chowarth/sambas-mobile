@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:controls="clr-namespace:Sambas.Mobile.Controls"
+    xmlns:icons="clr-namespace:IconFont.Maui.FluentIcons;assembly=IconFont.Maui.FluentIcons"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Sambas.Mobile.Resources.Styles.SwipeItemStyles">
+
+    <Style TargetType="controls:SwipeItemControl">
+        <Setter Property="Margin" Value="16"/>
+        <Setter Property="Padding" Value="16"/>
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="WidthRequest" Value="75"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+    </Style>
+
+    <Style
+        x:Key="DeleteAction"
+        TargetType="controls:SwipeItemControl">
+        <Setter Property="ActionColor" Value="{StaticResource LightDanger}"/>
+        <Setter Property="ActionIcon" Value="{FontImageSource
+            Size=24,
+            Color=White,
+            Glyph={x:Static icons:FluentIconsRegular.Delete24},
+            FontFamily={x:Static icons:FluentIconsRegular.FontFamily}}"/>
+    </Style>
+
+</ResourceDictionary>

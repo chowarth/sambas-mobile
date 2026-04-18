@@ -17,29 +17,15 @@
             -->
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <!-- TODO: Implicit style -->
-                    <SwipeView
-                        Threshold="85">
+                    <SwipeView Threshold="85">
                         <SwipeView.RightItems>
-                            <!-- TODO: Implicit style -->
-                            <SwipeItems
-                                Mode="Reveal">
-                                <!-- TODO:
-                                    Move to own control
-                                    Delete style (Light & Dark)
-                                -->
+                            <SwipeItems Mode="Reveal">
                                 <controls:SwipeItemControl
+                                    Style="{StaticResource DeleteAction}"
                                     Command="{Binding x:DataType='local:MatchListPageViewModel',
                                         Source={RelativeSource AncestorType={x:Type local:MatchListPageViewModel}},
                                         Path=DeleteMatchCommand}"
-                                    CommandParameter="{Binding .}"
-                                    CornerRadius="16"
-                                    ActionColor="{StaticResource LightDanger}"
-                                    ActionIcon="{FontImageSource
-                                        Size=24,
-                                        Color=White,
-                                        Glyph={x:Static icons:FluentIconsRegular.Delete24},
-                                        FontFamily={x:Static icons:FluentIconsRegular.FontFamily}}"/>
+                                    CommandParameter="{Binding .}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <local:MatchOverview/>

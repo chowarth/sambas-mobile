@@ -2,8 +2,9 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Sambas.Mobile.Controls"
     xmlns:icons="clr-namespace:IconFont.Maui.FluentIcons;assembly=IconFont.Maui.FluentIcons"
-    xmlns:local="clr-namespace:Sambas.Mobile.Features.Matches"    
+    xmlns:local="clr-namespace:Sambas.Mobile.Features.Matches"
     x:Class="Sambas.Mobile.Features.Matches.MatchListPage">
 
     <Grid>
@@ -18,46 +19,27 @@
                 <DataTemplate>
                     <!-- TODO: Implicit style -->
                     <SwipeView
-                        Threshold="90">
+                        Threshold="85">
                         <SwipeView.RightItems>
                             <!-- TODO: Implicit style -->
                             <SwipeItems
                                 Mode="Reveal">
-                                <!-- TODO: Move to own control -->
-                                <SwipeItemView
+                                <!-- TODO:
+                                    Move to own control
+                                    Delete style (Light & Dark)
+                                -->
+                                <controls:SwipeItemControl
                                     Command="{Binding x:DataType='local:MatchListPageViewModel',
                                         Source={RelativeSource AncestorType={x:Type local:MatchListPageViewModel}},
                                         Path=DeleteMatchCommand}"
                                     CommandParameter="{Binding .}"
-                                    VerticalOptions="Center">
-                                    <Border
-                                        Margin="16"
-                                        Padding="16"
-                                        StrokeShape="RoundRectangle 0, 16, 0, 16"
-                                        StrokeThickness="0"
-                                        BackgroundColor="{StaticResource LightDanger}">
-                                        <Grid
-                                            WidthRequest="75"
-                                            RowDefinitions="Auto,Auto"
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Center">
-                                            <Image
-                                                Grid.Row="0"
-                                                Source="{FontImageSource
-                                                    Color=White,
-                                                    Glyph={x:Static icons:FluentIconsRegular.Delete24},
-                                                    FontFamily={x:Static icons:FluentIconsRegular.FontFamily}}"
-                                                WidthRequest="24"
-                                                HeightRequest="24"/>
-                                            <Label
-                                                Grid.Row="1"
-                                                Text="Delete"
-                                                FontSize="12"
-                                                TextColor="White"
-                                                HorizontalTextAlignment="Center"/>
-                                        </Grid>
-                                    </Border>
-                                </SwipeItemView>
+                                    CornerRadius="16"
+                                    ActionColor="{StaticResource LightDanger}"
+                                    ActionIcon="{FontImageSource
+                                        Size=24,
+                                        Color=White,
+                                        Glyph={x:Static icons:FluentIconsRegular.Delete24},
+                                        FontFamily={x:Static icons:FluentIconsRegular.FontFamily}}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <local:MatchOverview/>

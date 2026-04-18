@@ -81,6 +81,9 @@
 	  <MauiXaml Update="Controls\EntryControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Controls\SwipeItemControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Controls\TimePickerControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

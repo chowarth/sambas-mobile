@@ -46,6 +46,8 @@ internal class MatchListPageViewModel : BaseViewModel
     {
         var matches = await _store.Query<Match>().ToList();
 
+        Matches.Clear();
+
         foreach (Match match in matches)
             Matches.Add(match);
     }

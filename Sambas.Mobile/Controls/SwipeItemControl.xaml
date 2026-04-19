@@ -8,7 +8,7 @@
     <ImageButton
         Source="{Binding Source={x:Reference Self}, Path=ActionIcon}"
         Aspect="Center"
-        WidthRequest="75"
+        WidthRequest="{Binding Source={x:Reference Self}, Path=WidthRequest}"
         CornerRadius="{Binding Source={x:Reference Self}, Path=CornerRadius}"
         BackgroundColor="{Binding Source={x:Reference Self}, Path=ActionColor}"
         VerticalOptions="Center"

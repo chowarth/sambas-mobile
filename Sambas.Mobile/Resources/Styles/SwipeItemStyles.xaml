@@ -18,7 +18,7 @@
     <Style
         x:Key="DeleteAction"
         TargetType="controls:SwipeItemControl">
-        <Setter Property="ActionColor" Value="{StaticResource LightDanger}"/>
+        <Setter Property="ActionColor" Value="{AppThemeBinding Light={StaticResource DarkBackgroundDanger}, Dark={StaticResource DarkBackgroundDanger}}"/>
         <Setter Property="ActionIcon" Value="{FontImageSource
             Size=24,
             Color=White,

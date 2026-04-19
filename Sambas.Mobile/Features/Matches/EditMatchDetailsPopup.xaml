@@ -7,12 +7,7 @@
     xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
     x:Class="Sambas.Mobile.Features.Matches.EditMatchDetailsPopup"
     x:TypeArguments="models:Match"
-    Result="{Binding Match}"
-    CloseWhenBackgroundIsClicked="True"
-    AppearingAnimation="{uxd:MoveInPopupAnimation
-        MoveDirection=Top, Duration=300, Easing=CubicOut}"
-    DisappearingAnimation="{uxd:MoveOutPopupAnimation
-        MoveDirection=Top, Duration=300, Easing=CubicIn}">
+    Result="{Binding Match}">
 
     <Border
         VerticalOptions="Start"
@@ -24,8 +19,7 @@
                 FontAttributes="Bold"/>
             <!-- Teams Section -->
             <BoxView
-                HeightRequest="1"
-                BackgroundColor="{StaticResource Primary}"/>
+                Style="{StaticResource Separator}"/>
             <Grid
                 RowSpacing="8"
                 ColumnSpacing="16"
@@ -60,11 +54,10 @@
                     Grid.Column="2"
                     Text="{Binding AwayTeam.Name}"/>
             </Grid>
-            
+
             <!-- Score Section -->
             <BoxView
-                HeightRequest="1"
-                BackgroundColor="{StaticResource Primary}"/>
+                Style="{StaticResource Separator}"/>
             <Grid
                 RowSpacing="8"
                 ColumnSpacing="16"
@@ -103,8 +96,7 @@
 
             <!-- Kick-Off Section -->
             <BoxView
-                HeightRequest="1"
-                BackgroundColor="{StaticResource Primary}"/>
+                Style="{StaticResource Separator}"/>
             <Grid
                 RowSpacing="8"
                 ColumnSpacing="16"
@@ -142,5 +134,4 @@
 
         </VerticalStackLayout>
     </Border>
-
 </uxd:PopupResultPage>

@@ -4,11 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:icons="clr-namespace:IconFont.Maui.FluentIcons;assembly=IconFont.Maui.FluentIcons"
     x:Class="Sambas.Mobile.Controls.DatePickerControl"
-    x:Name="Self"
-    Padding="8"
-    Stroke="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}"
-    StrokeShape="RoundRectangle 8"
-    HeightRequest="40">
+    x:Name="Self">
 
     <Border.Triggers>
         <DataTrigger
@@ -17,7 +13,7 @@
                 Source={x:Reference DatePicker},
                 Path=IsFocused}"
             Value="true">
-            <Setter Property="Stroke" Value="{StaticResource Primary}"/>
+            <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource LightAccent}, Dark={StaticResource DarkAccent}}"/>
         </DataTrigger>
     </Border.Triggers>
 
@@ -32,7 +28,7 @@
             VerticalOptions="Center"
             HorizontalOptions="Start"
             Source="{FontImageSource
-                Color={AppThemeBinding Light={StaticResource LightIcon}, Dark={StaticResource DarkIcon}},
+                Color={AppThemeBinding Light={StaticResource LightTextPrimary}, Dark={StaticResource DarkTextPrimary}},
                 Glyph={x:Static icons:FluentIconsRegular.Calendar24},
                 FontFamily={x:Static icons:FluentIconsRegular.FontFamily}}"/>
         <DatePicker

@@ -1,4 +1,6 @@
-﻿using IconFont.Maui.FluentIcons;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+using IconFont.Maui.FluentIcons;
 using Microsoft.Extensions.Logging;
 using Sambas.Mobile.Features.Matches;
 using Sambas.Mobile.Features.Startup;
@@ -42,8 +44,15 @@ public static class MauiProgram
             {
                 var dbPath = Path.Combine(FileSystem.AppDataDirectory, "Sambas.db");
                 options.DatabaseProvider = new SqliteDatabaseProvider($"Data Source={dbPath}");
-                //options.MapTypeToTable<Team>("teams", t => t.Id)
-                //options.MapTypeToTable<Match>("matches", t => t.Id);
+                //options.MapTypeToTable<Models.Team>("teams", t => t.Id);
+                //options.MapTypeToTable<Models.Match>("matches", t => t.Id);
+
+                var context = new AppJsonContext(new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                });
+                options.JsonSerializerOptions = context.Options;
+                options.UseReflectionFallback = false; // Recommended for AOT
             });
 
         // Register this AppShell so that it can be used for navigation purposes by Shiny's INavigator.
@@ -103,3 +112,12 @@ public static class MauiProgram
         builder.AddSerilog(logger);
     }
 }
+
+// 'This operation requires a JsonTypeInfo<Match>. Use the Query<T>(JsonTypeInfo<T>) overload.'
+// If AppJsonContext is used then there is no error, the docs don't mention anything about it for the default
+// set up, so why is it required in this case? Is it because of the use of OrderByDescending?
+// I need to understand the underlying reason for this error and how the AppJsonContext resolves it.
+
+// See: https://shinylib.net/data/documentdb/aot/#_top
+[JsonSerializable(typeof(Models.Match))]
+public partial class AppJsonContext : JsonSerializerContext;

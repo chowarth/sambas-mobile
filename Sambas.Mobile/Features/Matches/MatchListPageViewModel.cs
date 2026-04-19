@@ -44,7 +44,9 @@ internal class MatchListPageViewModel : BaseViewModel
 
     private async Task LoadMatches()
     {
-        var matches = await _store.Query<Match>().ToList();
+        var matches = await _store.Query<Match>()
+            .OrderByDescending(x => x.KickOff.Date!)
+            .ToList();
 
         Matches.Clear();
 

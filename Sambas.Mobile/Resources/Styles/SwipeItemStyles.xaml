@@ -8,9 +8,9 @@
 
     <Style TargetType="controls:SwipeItemControl">
         <Setter Property="Margin" Value="16"/>
-        <Setter Property="Padding" Value="16"/>
+        <Setter Property="Padding" Value="16,9"/>
         <Setter Property="CornerRadius" Value="16"/>
-        <Setter Property="WidthRequest" Value="75"/>
+        <Setter Property="WidthRequest" Value="85"/>
         <Setter Property="VerticalOptions" Value="Center"/>
         <Setter Property="HorizontalOptions" Value="Center"/>
     </Style>
@@ -18,6 +18,8 @@
     <Style
         x:Key="DeleteAction"
         TargetType="controls:SwipeItemControl">
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource LightBackgroundDanger}, Dark={StaticResource LightBackgroundDanger}}" />
         <Setter Property="ActionColor" Value="{AppThemeBinding Light={StaticResource DarkBackgroundDanger}, Dark={StaticResource DarkBackgroundDanger}}"/>
         <Setter Property="ActionIcon" Value="{FontImageSource
             Size=24,

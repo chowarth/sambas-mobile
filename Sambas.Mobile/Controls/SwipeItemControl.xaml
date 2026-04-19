@@ -8,10 +8,10 @@
     <ImageButton
         Source="{Binding Source={x:Reference Self}, Path=ActionIcon}"
         Aspect="Center"
+        BorderColor="{Binding Source={x:Reference Self}, Path=BorderColor}"
+        BorderWidth="{Binding Source={x:Reference Self}, Path=BorderWidth}"
         WidthRequest="{Binding Source={x:Reference Self}, Path=WidthRequest}"
         CornerRadius="{Binding Source={x:Reference Self}, Path=CornerRadius}"
-        BackgroundColor="{Binding Source={x:Reference Self}, Path=ActionColor}"
-        VerticalOptions="Center"
-        HorizontalOptions="Center"/>
+        BackgroundColor="{Binding Source={x:Reference Self}, Path=ActionColor}"/>
 
 </SwipeItemView>

@@ -26,6 +26,30 @@ public partial class SwipeItemControl : SwipeItemView
         set => SetValue(ActionIconProperty, value);
     }
 
+    public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(
+        nameof(BorderColor),
+        typeof(Color),
+        typeof(SwipeItemControl),
+        Colors.Fuchsia);
+
+    public Color BorderColor
+    {
+        get => (Color)GetValue(BorderColorProperty);
+        set => SetValue(BorderColorProperty, value);
+    }
+
+    public static readonly BindableProperty BorderWidthProperty = BindableProperty.Create(
+        nameof(BorderWidth),
+        typeof(double),
+        typeof(SwipeItemControl),
+        -1d);
+
+    public double BorderWidth
+    {
+        get => (double)GetValue(BorderWidthProperty);
+        set => SetValue(BorderWidthProperty, value);
+    }
+
     public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(
         nameof(CornerRadius),
         typeof(int),

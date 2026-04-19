@@ -17,7 +17,7 @@
             -->
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <SwipeView Threshold="85">
+                    <SwipeView Threshold="95">
                         <SwipeView.RightItems>
                             <SwipeItems Mode="Reveal">
                                 <controls:SwipeItemControl

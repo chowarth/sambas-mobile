@@ -63,7 +63,6 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
         // If Match.Id is empty, then it's a new match and we should insert it
         // If Match.Id is not empty, then it's an existing match and we should update it
         var match = new Match(
-            Guid.Empty,
             HomeTeam,
             AwayTeam,
             KickOff,

@@ -70,10 +70,10 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
             Array.Empty<Goal>()
         );
         await _store.Insert(match);
-        Match = match;
 
         // Return values for popups should be bound to the page 'Result' property,
         // see: https://github.com/UXDivers/uxd-popups/issues/32
+        Match = match;
         await _popupService.PopAsync();
     }
 }

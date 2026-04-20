@@ -14,13 +14,17 @@
             <!-- TODO:
                 Empty view
                 Swipe to edit
+                Add "bold" label style using OpenSansSemibold
+                    Group headers
+                    Team names
+                    Score
             -->
             <CollectionView.GroupHeaderTemplate>
                 <DataTemplate>
                     <ContentView>
                         <Label
                             Margin="16,8"
-                            FontAttributes="Bold"
+                            Style="{StaticResource LabelSemibold}"
                             Text="{Binding Month, StringFormat= '{0:Y}'}"/>
                     </ContentView>
                 </DataTemplate>

@@ -27,7 +27,7 @@
             <Label
                 Grid.Row="1"
                 Grid.Column="0"
-                FontAttributes="Bold"
+                Style="{StaticResource LabelSemibold}"
                 Text="{Binding HomeTeam.Name}"
                 VerticalOptions="Center"/>
             <Label
@@ -35,13 +35,14 @@
                 Grid.Column="1"
                 Text="{Binding Score.HomeTeamScore}"
                 FontSize="20"
-                FontAttributes="Bold"
+                Style="{StaticResource LabelSemibold}"
                 VerticalOptions="Center"/>
             
             <Label
                 Grid.Row="1"
                 Grid.Column="2"
                 Text="-"
+                Style="{StaticResource LabelSemibold}"
                 VerticalOptions="Center"/>
             
             <Label
@@ -49,12 +50,12 @@
                 Grid.Column="3"
                 Text="{Binding Score.AwayTeamScore}"
                 FontSize="20"
-                FontAttributes="Bold"
+                Style="{StaticResource LabelSemibold}"
                 VerticalOptions="Center"/>
             <Label
                 Grid.Row="1"
                 Grid.Column="4"
-                FontAttributes="Bold"
+                Style="{StaticResource LabelSemibold}"
                 Text="{Binding AwayTeam.Name}"
                 VerticalOptions="Center"
                 HorizontalTextAlignment="End"/>

@@ -28,7 +28,8 @@
                 <Label
                     Grid.Row="0"
                     Text="TEAMS"
-                    FontSize="14"/>
+                    FontSize="14"
+                    Style="{StaticResource LabelSemibold}"/>
                 <Label
                     Grid.Row="1"
                     Grid.Column="0"
@@ -66,7 +67,8 @@
                 <Label
                     Grid.Row="0"
                     Text="SCORE"
-                    FontSize="14"/>
+                    FontSize="14"
+                    Style="{StaticResource LabelSemibold}"/>
                 <Label
                     Grid.Row="1"
                     Grid.Column="0"
@@ -105,7 +107,8 @@
                 <Label
                     Grid.Row="0"
                     Text="KICK-OFF"
-                    FontSize="14"/>
+                    FontSize="14"
+                    Style="{StaticResource LabelSemibold}"/>
                 <Label
                     Grid.Row="1"
                     Grid.Column="0"

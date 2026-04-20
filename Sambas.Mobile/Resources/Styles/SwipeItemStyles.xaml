@@ -19,11 +19,11 @@
         x:Key="DeleteAction"
         TargetType="controls:SwipeItemControl">
         <Setter Property="BorderWidth" Value="1" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource LightBackgroundDanger}, Dark={StaticResource LightBackgroundDanger}}" />
-        <Setter Property="ActionColor" Value="{AppThemeBinding Light={StaticResource DarkBackgroundDanger}, Dark={StaticResource DarkBackgroundDanger}}"/>
+        <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource DarkBackgroundDanger}, Dark={StaticResource LightBackgroundDanger}}" />
+        <Setter Property="ActionColor" Value="{AppThemeBinding Light={StaticResource LightBackgroundDanger}, Dark={StaticResource DarkBackgroundDanger}}"/>
         <Setter Property="ActionIcon" Value="{FontImageSource
             Size=24,
-            Color=White,
+            Color={AppThemeBinding Light={StaticResource DarkBackgroundDanger}, Dark={StaticResource LightBackgroundDanger}},
             Glyph={x:Static icons:FluentIconsRegular.Delete24},
             FontFamily={x:Static icons:FluentIconsRegular.FontFamily}}"/>
     </Style>

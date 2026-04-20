@@ -8,6 +8,17 @@ using UXDivers.Popups.Services;
 
 namespace Sambas.Mobile.Features.Matches;
 
+internal sealed class MatchGrouping : ObservableCollection<Match>
+{
+    public DateTime Month { get; }
+
+    public MatchGrouping(DateTime month, IEnumerable<Match> matches)
+        : base(matches)
+    {
+        Month = month;
+    }
+}
+
 internal class MatchListPageViewModel : BaseViewModel
 {
     private readonly IDocumentStore _store;
@@ -16,11 +27,11 @@ internal class MatchListPageViewModel : BaseViewModel
     public ICommand AddMatchCommand { get; init; }
     public ICommand DeleteMatchCommand { get; init; }
 
-    public ObservableCollection<Match> Matches
+    public ObservableCollection<MatchGrouping> MatchGroupings
     {
         get;
         set => SetProperty(ref field, value);
-    } = new ObservableCollection<Match>();
+    } = new ObservableCollection<MatchGrouping>();
 
     public MatchListPageViewModel(
         IDocumentStore store,
@@ -45,13 +56,21 @@ internal class MatchListPageViewModel : BaseViewModel
     private async Task LoadMatches()
     {
         var matches = await _store.Query<Match>()
-            .OrderByDescending(x => x.KickOff.Date!)
             .ToList();
 
-        Matches.Clear();
+        var groups = matches
+            .GroupBy(x => new { x.KickOff.Date!.Value.Year, x.KickOff.Date!.Value.Month })
+            .OrderByDescending(g => g.Key.Year)
+            .ThenByDescending(g => g.Key.Month)
+            .Select(g => new MatchGrouping(
+                new DateTime(g.Key.Year, g.Key.Month, 1),
+                g.OrderByDescending(m => m.KickOff.Date!))
+            );
 
-        foreach (Match match in matches)
-            Matches.Add(match);
+        MatchGroupings.Clear();
+
+        foreach (MatchGrouping group in groups)
+            MatchGroupings.Add(group);
     }
 
     private async Task AddMatchAsync()
@@ -64,6 +83,9 @@ internal class MatchListPageViewModel : BaseViewModel
     private async Task DeleteMatchAsync(Match match)
     {
         if (await _store.Remove<Match>(match.Id))
-            Matches.Remove(match);
+        {
+            MatchGroupings.First(g => g.Contains(match))
+                .Remove(match);
+        }
     }
 }

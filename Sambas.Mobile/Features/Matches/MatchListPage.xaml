@@ -9,12 +9,22 @@
 
     <Grid>
         <CollectionView
-            ItemsSource="{Binding Matches}">
+            IsGrouped="True"
+            ItemsSource="{Binding MatchGroupings}">
             <!-- TODO:
                 Empty view
-                Group by month
-                Swipe to edit?
+                Swipe to edit
             -->
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ContentView>
+                        <Label
+                            Margin="16,8"
+                            FontAttributes="Bold"
+                            Text="{Binding Month, StringFormat= '{0:Y}'}"/>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <SwipeView Threshold="95">

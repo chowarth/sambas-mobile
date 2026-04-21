@@ -8,17 +8,6 @@ using UXDivers.Popups.Services;
 
 namespace Sambas.Mobile.Features.Matches;
 
-internal sealed class MatchGrouping : ObservableCollection<Match>
-{
-    public DateTime Month { get; }
-
-    public MatchGrouping(DateTime month, IEnumerable<Match> matches)
-        : base(matches)
-    {
-        Month = month;
-    }
-}
-
 internal class MatchListPageViewModel : BaseViewModel
 {
     private readonly IDocumentStore _store;
@@ -63,6 +52,7 @@ internal class MatchListPageViewModel : BaseViewModel
             .OrderByDescending(g => g.Key.Year)
             .ThenByDescending(g => g.Key.Month)
             .Select(g => new MatchGrouping(
+                // Dummy date for group heading, we only care about year & month.
                 new DateTime(g.Key.Year, g.Key.Month, 1),
                 g.OrderByDescending(m => m.KickOff.Date!))
             );

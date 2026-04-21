@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:Sambas.Mobile.Controls;assembly=Sambas.Mobile"
+    xmlns:i18n="clr-namespace:Sambas.Mobile.Resources.Localisation"
     xmlns:models="clr-namespace:Sambas.Mobile.Models"
     xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
     x:Class="Sambas.Mobile.Features.Matches.EditMatchDetailsPopup"
@@ -14,9 +15,9 @@
         Style="{StaticResource CardStyle}">
         <VerticalStackLayout>
             <Label
-                Text="Edit Match Details"
+                Text="{x:Static i18n:Strings.EditMatchDetails_Title}"
                 FontSize="18"
-                FontAttributes="Bold"/>
+                Style="{StaticResource LabelSemibold}"/>
             <!-- Teams Section -->
             <BoxView
                 Style="{StaticResource Separator}"/>
@@ -27,13 +28,14 @@
                 ColumnDefinitions="*,Auto,*">
                 <Label
                     Grid.Row="0"
-                    Text="TEAMS"
+                    Text="{x:Static i18n:Strings.TeamsLabel}"
+                    TextTransform="Uppercase"
                     FontSize="14"
                     Style="{StaticResource LabelSemibold}"/>
                 <Label
                     Grid.Row="1"
                     Grid.Column="0"
-                    Text="Home"
+                    Text="{x:Static i18n:Strings.HomeLabel}"
                     FontSize="12"/>
                 <controls:EntryControl
                     Grid.Row="2"
@@ -43,12 +45,13 @@
                 <Label
                     Grid.Row="2"
                     Grid.Column="1"
-                    Text="vs"
+                    Text="{x:Static i18n:Strings.VersusLabel_Short}"
+                    TextTransform="Lowercase"
                     VerticalOptions="Center"/>
                 <Label
                     Grid.Row="1"
                     Grid.Column="2"
-                    Text="Away"
+                    Text="{x:Static i18n:Strings.AwayLabel}"
                     FontSize="12"/>
                 <controls:EntryControl
                     Grid.Row="2"
@@ -66,13 +69,14 @@
                 ColumnDefinitions="*,Auto,*">
                 <Label
                     Grid.Row="0"
-                    Text="SCORE"
+                    Text="{x:Static i18n:Strings.ScoreLabel}"
+                    TextTransform="Uppercase"
                     FontSize="14"
                     Style="{StaticResource LabelSemibold}"/>
                 <Label
                     Grid.Row="1"
                     Grid.Column="0"
-                    Text="Home"
+                    Text="{x:Static i18n:Strings.HomeLabel}"
                     FontSize="12"/>
                 <controls:EntryControl
                     Grid.Row="2"
@@ -87,7 +91,7 @@
                 <Label
                     Grid.Row="1"
                     Grid.Column="2"
-                    Text="Away"
+                    Text="{x:Static i18n:Strings.AwayLabel}"
                     FontSize="12"/>
                 <controls:EntryControl
                     Grid.Row="2"
@@ -106,13 +110,14 @@
                 ColumnDefinitions="*,*">
                 <Label
                     Grid.Row="0"
-                    Text="KICK-OFF"
+                    Text="{x:Static i18n:Strings.KickOffLabel}"
+                    TextTransform="Uppercase"
                     FontSize="14"
                     Style="{StaticResource LabelSemibold}"/>
                 <Label
                     Grid.Row="1"
                     Grid.Column="0"
-                    Text="Date"
+                    Text="{x:Static i18n:Strings.DateLabel}"
                     FontSize="12"/>
                 <controls:DatePickerControl
                     Grid.Row="2"
@@ -122,7 +127,7 @@
                 <Label
                     Grid.Row="1"
                     Grid.Column="1"
-                    Text="Time"
+                    Text="{x:Static i18n:Strings.TimeLabel}"
                     FontSize="12"/>
                 <controls:TimePickerControl
                     Grid.Row="2"
@@ -131,7 +136,7 @@
             </Grid>
 
             <Button
-                Text="Save Match"
+                Text="{x:Static i18n:Strings.SaveMatchButton}"
                 VerticalOptions="End"
                 Command="{Binding SaveMatchCommand}"/>
 

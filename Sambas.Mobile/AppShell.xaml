@@ -6,11 +6,12 @@
     xmlns:shiny="clr-namespace:Shiny;assembly=Shiny.Maui.Shell"
     xmlns:matches="clr-namespace:Sambas.Mobile.Features.Matches"
     xmlns:icons="clr-namespace:IconFont.Maui.FluentIcons;assembly=IconFont.Maui.FluentIcons"
+    xmlns:i18n="clr-namespace:Sambas.Mobile.Resources.Localisation"
     xmlns:tournaments="clr-namespace:Sambas.Mobile.Features.Tournaments">
 
     <TabBar>
         <Tab
-            Title="Matches"
+            Title="{x:Static i18n:Strings.Tab_Matches}"
             Icon="{FontImageSource
                 Glyph={x:Static icons:FluentIconsFilled.SportSoccer16},
                 FontFamily={x:Static icons:FluentIconsFilled.FontFamily}}">
@@ -20,7 +21,7 @@
                 ContentTemplate="{DataTemplate matches:MatchListPage}"/>
         </Tab>
         <Tab
-            Title="Tournaments"
+            Title="{x:Static i18n:Strings.Tab_Tournameents}"
             Icon="{FontImageSource
                 Glyph={x:Static icons:FluentIconsFilled.Trophy16},
                 FontFamily={x:Static icons:FluentIconsFilled.FontFamily}}">

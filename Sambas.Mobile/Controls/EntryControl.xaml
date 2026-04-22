@@ -1,25 +1,95 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Border
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Sambas.Mobile.Controls.EntryControl"
     x:Name="Self">
 
     <Border.Triggers>
-        <DataTrigger
-            TargetType="Border"
-            Binding="{Binding x:DataType='Entry',
-                Source={x:Reference Entry},
-                Path=IsFocused}"
-            Value="true">
-            <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource LightAccent}, Dark={StaticResource DarkAccent}}"/>
-        </DataTrigger>
+        <!-- IsFocused AND IsNotValid -->
+        <MultiTrigger TargetType="Border">
+            <MultiTrigger.Conditions>
+                <BindingCondition
+                    Binding="{Binding x:DataType='Entry',
+                        Source={x:Reference Entry},
+                        Path=IsFocused}"
+                    Value="true"/>
+                <BindingCondition
+                     Binding="{Binding x:DataType='toolkit:CharactersValidationBehavior',
+                        Source={x:Reference EntryValidator},
+                        Path=IsValid}"
+                    Value="false"/>
+            </MultiTrigger.Conditions>
+            <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource LightTextDanger}, Dark={StaticResource DarkTextDanger}}" />
+        </MultiTrigger>
+
+        <!-- IsFocused AND IsValid -->
+        <MultiTrigger TargetType="Border">
+            <MultiTrigger.Conditions>
+                <BindingCondition
+                    Binding="{Binding x:DataType='Entry',
+                        Source={x:Reference Entry},
+                        Path=IsFocused}"
+                    Value="true"/>
+                <BindingCondition
+                     Binding="{Binding x:DataType='toolkit:CharactersValidationBehavior',
+                        Source={x:Reference EntryValidator},
+                        Path=IsValid}"
+                    Value="true"/>
+            </MultiTrigger.Conditions>
+            <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource LightAccent}, Dark={StaticResource DarkAccent}}" />
+        </MultiTrigger>
+
+        <!-- IsNotFocused AND IsNotValid -->
+        <MultiTrigger TargetType="Border">
+            <MultiTrigger.Conditions>
+                <BindingCondition
+                    Binding="{Binding x:DataType='Entry',
+                        Source={x:Reference Entry},
+                        Path=IsFocused}"
+                    Value="false"/>
+                <BindingCondition
+                     Binding="{Binding x:DataType='toolkit:CharactersValidationBehavior',
+                        Source={x:Reference EntryValidator},
+                        Path=IsValid}"
+                    Value="false"/>
+            </MultiTrigger.Conditions>
+            <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource LightTextDanger}, Dark={StaticResource DarkTextDanger}}" />
+        </MultiTrigger>
+
+        <!-- IsNotFocused AND IsValid -->
+        <MultiTrigger TargetType="Border">
+            <MultiTrigger.Conditions>
+                <BindingCondition
+                    Binding="{Binding x:DataType='Entry',
+                        Source={x:Reference Entry},
+                        Path=IsFocused}"
+                    Value="false"/>
+                <BindingCondition
+                     Binding="{Binding x:DataType='toolkit:CharactersValidationBehavior',
+                        Source={x:Reference EntryValidator},
+                        Path=IsValid}"
+                    Value="true"/>
+            </MultiTrigger.Conditions>
+            <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource LightBorderPrimary}, Dark={StaticResource DarkBorderPrimary}}" />
+        </MultiTrigger>
     </Border.Triggers>
 
     <Entry
         x:Name="Entry"
         Text="{Binding Source={x:Reference Self}, Path=Text}"
         Keyboard="{Binding Source={x:Reference Self}, Path=Keyboard}"
-        IsReadOnly="{Binding Source={x:Reference Self}, Path=IsReadOnly}"/>
+        IsReadOnly="{Binding Source={x:Reference Self}, Path=IsReadOnly}">
+        <Entry.Behaviors>
+            <toolkit:CharactersValidationBehavior
+                x:Name="EntryValidator"
+                Flags="ValidateOnAttaching, ValidateOnValueChanged, ValidateOnUnfocused"
+                CharacterType="Letter"
+                MinimumLength="{Binding Source={x:Reference Self}, Path=MinimumLength}"
+                MaximumLength="{Binding Source={x:Reference Self}, Path=MaximumLength}"
+                DecorationFlags="NullToEmpty"/>
+        </Entry.Behaviors>
+    </Entry>
 
 </Border>

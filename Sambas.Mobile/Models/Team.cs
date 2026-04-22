@@ -16,7 +16,4 @@ public sealed record Team(Guid Id, string Name, IReadOnlyCollection<Player> Squa
             new Player("Stanley", "Warren")
         ]
     );
-
-    public static Team Empty
-        => new(Guid.Empty, "", []);
 }

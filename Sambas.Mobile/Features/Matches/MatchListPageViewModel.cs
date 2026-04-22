@@ -48,13 +48,13 @@ internal class MatchListPageViewModel : BaseViewModel
             .ToList();
 
         var groups = matches
-            .GroupBy(x => new { x.KickOff.Date!.Value.Year, x.KickOff.Date!.Value.Month })
+            .GroupBy(x => new { x.KickOff.Date.Year, x.KickOff.Date.Month })
             .OrderByDescending(g => g.Key.Year)
             .ThenByDescending(g => g.Key.Month)
             .Select(g => new MatchGrouping(
                 // Dummy date for group heading, we only care about year & month.
                 new DateTime(g.Key.Year, g.Key.Month, 1),
-                g.OrderByDescending(m => m.KickOff.Date!))
+                g.OrderByDescending(m => m.KickOff.Date))
             );
 
         MatchGroupings.Clear();

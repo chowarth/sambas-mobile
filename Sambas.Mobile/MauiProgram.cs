@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using CommunityToolkit.Maui;
 using IconFont.Maui.FluentIcons;
 using Microsoft.Extensions.Logging;
 using Sambas.Mobile.Features.Matches;
@@ -25,6 +26,7 @@ public static class MauiProgram
                 .Add<MatchListPage, MatchListPageViewModel>(registerRoute: false)
                 .Add<TournamentListPage, TournamentListPageViewModel>(registerRoute: false)
             )
+            .UseMauiCommunityToolkit()
             .UseUXDiversPopups()
             .UseFluentIconsFilled()
             .UseFluentIconsRegular()
@@ -64,7 +66,10 @@ public static class MauiProgram
 
     private static IServiceCollection AddPopupRegistrations(this IServiceCollection services)
     {
-        services.AddTransientPopup<EditMatchDetailsPopup, EditMatchDetailsPopupViewModel>();
+        // Explicitly call the extension method AddTransientPopup because the same method
+        // exists in both UXDivers.Popups.Maui and CommunityToolkit.Maui.
+        UXDivers.Popups.Maui.ServiceCollectionExtensions
+            .AddTransientPopup<EditMatchDetailsPopup, EditMatchDetailsPopupViewModel>(services);
 
         return services;
     }

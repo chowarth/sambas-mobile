@@ -24,23 +24,35 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
         set => SetProperty(ref field, value);
     } = Team.Sambas;
 
-    public Team AwayTeam
+    public string? AwayTeamName
     {
         get;
         set => SetProperty(ref field, value);
-    } = Team.Empty;
+    }
 
-    public KickOff KickOff
+    public int? HomeScore
     {
         get;
         set => SetProperty(ref field, value);
-    } = KickOff.Default;
+    }
 
-    public Score Score
+    public int? AwayScore
     {
         get;
         set => SetProperty(ref field, value);
-    } = Score.Default;
+    }
+
+    public DateTime? KickOffDate
+    {
+        get;
+        set => SetProperty(ref field, value);
+    }
+
+    public TimeSpan? KickOffTime
+    {
+        get;
+        set => SetProperty(ref field, value);
+    }
 
     public ICommand SaveMatchCommand { get; init; }
 
@@ -58,15 +70,18 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
 
     private async Task SaveMatchAsync()
     {
+        if (!IsValidMatchDetails())
+            return;
+
         // TODO: Handle match edit
         // Pass an existing match to the popup when editing
         // If Match.Id is empty, then it's a new match and we should insert it
         // If Match.Id is not empty, then it's an existing match and we should update it
         var match = new Match(
             HomeTeam,
-            AwayTeam,
-            KickOff,
-            Score,
+            new Team(Guid.Empty, AwayTeamName!, []),
+            new KickOff(KickOffDate!.Value, KickOffTime!.Value),
+            new Score(HomeScore!.Value, AwayScore!.Value),
             Array.Empty<Goal>()
         );
         await _store.Insert(match);
@@ -75,5 +90,17 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
         // see: https://github.com/UXDivers/uxd-popups/issues/32
         Match = match;
         await _popupService.PopAsync();
+    }
+
+    private bool IsValidMatchDetails()
+    {
+        if (AwayTeamName is null ||
+            HomeScore is null || AwayScore is null ||
+            KickOffDate is null || KickOffTime is null)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

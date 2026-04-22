@@ -56,7 +56,8 @@
                 <controls:EntryControl
                     Grid.Row="2"
                     Grid.Column="2"
-                    Text="{Binding AwayTeam.Name}"/>
+                    MinimumLength="3"
+                    Text="{Binding AwayTeamName}"/>
             </Grid>
 
             <!-- Score Section -->
@@ -82,7 +83,8 @@
                     Grid.Row="2"
                     Grid.Column="0"
                     Keyboard="Numeric"
-                    Text="{Binding Score.HomeTeamScore, FallbackValue='-'}"/>
+                    MaximumLength="2"
+                    Text="{Binding HomeScore, FallbackValue='-'}"/>
                 <Label
                     Grid.Row="2"
                     Grid.Column="1"
@@ -97,7 +99,8 @@
                     Grid.Row="2"
                     Grid.Column="2"
                     Keyboard="Numeric"
-                    Text="{Binding Score.AwayTeamScore, FallbackValue='-'}"/>
+                    MaximumLength="2"
+                    Text="{Binding AwayScore, FallbackValue='-'}"/>
             </Grid>
 
             <!-- Kick-Off Section -->
@@ -122,7 +125,7 @@
                 <controls:DatePickerControl
                     Grid.Row="2"
                     Grid.Column="0"
-                    Date="{Binding KickOff.Date}"/>
+                    Date="{Binding KickOffDate}"/>
 
                 <Label
                     Grid.Row="1"
@@ -132,7 +135,7 @@
                 <controls:TimePickerControl
                     Grid.Row="2"
                     Grid.Column="1"
-                    Time="{Binding KickOff.Time}"/>
+                    Time="{Binding KickOffTime}"/>
             </Grid>
 
             <Button

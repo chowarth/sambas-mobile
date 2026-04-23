@@ -141,7 +141,8 @@
             <Button
                 Text="{x:Static i18n:Strings.SaveMatchButton}"
                 VerticalOptions="End"
-                Command="{Binding SaveMatchCommand}"/>
+                Command="{Binding SaveMatchCommand}"
+                IsEnabled="{Binding IsValid}"/>
 
         </VerticalStackLayout>
     </Border>

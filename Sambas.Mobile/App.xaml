@@ -7,7 +7,14 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <!--
+                    Colours.xaml must ALWAYS be at the top as it is referenced
+                    by all other style resource dictionaries. If it is not,
+                    the app will crash on startup due to missing resources.
+                -->
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                
+                <ResourceDictionary Source="Resources/Styles/ButtonStyles.xaml" />
                 <ResourceDictionary Source="Resources/Styles/DatePickerStyles.xaml" />
                 <ResourceDictionary Source="Resources/Styles/EntryStyles.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />

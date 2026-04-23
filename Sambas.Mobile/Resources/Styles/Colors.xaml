@@ -29,7 +29,6 @@
     <Color x:Key="LightIcon">#9C9A92</Color>
 
     <Color x:Key="LightBorderPrimary">#4C4C4B</Color>
-    <Color x:Key="LightBorderSecondary">#4C4C4B</Color>
 
     <!-- Dark mode -->
     <Color x:Key="DarkAccent">#5DCAA5</Color>

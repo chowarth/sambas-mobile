@@ -46,11 +46,8 @@
 
         <Button
             Text="+"
+            Style="{StaticResource FabButton}"
             Margin="16"
-            FontSize="24"
-            CornerRadius="24"
-            WidthRequest="48"
-            HeightRequest="48"
             VerticalOptions="End"
             HorizontalOptions="End"
             Command="{Binding AddMatchCommand}"/>

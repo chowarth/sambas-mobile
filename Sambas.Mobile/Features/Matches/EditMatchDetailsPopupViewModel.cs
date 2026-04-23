@@ -27,32 +27,35 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
     public string? AwayTeamName
     {
         get;
-        set => SetProperty(ref field, value);
+        set => SetProperty(ref field, value, () => RaisePropertyChanged(nameof(IsValid)));
     }
 
     public int? HomeScore
     {
         get;
-        set => SetProperty(ref field, value);
+        set => SetProperty(ref field, value, () => RaisePropertyChanged(nameof(IsValid)));
     }
 
     public int? AwayScore
     {
         get;
-        set => SetProperty(ref field, value);
+        set => SetProperty(ref field, value, () => RaisePropertyChanged(nameof(IsValid)));
     }
 
     public DateTime? KickOffDate
     {
         get;
-        set => SetProperty(ref field, value);
+        set => SetProperty(ref field, value, () => RaisePropertyChanged(nameof(IsValid)));
     }
 
     public TimeSpan? KickOffTime
     {
         get;
-        set => SetProperty(ref field, value);
+        set => SetProperty(ref field, value, () => RaisePropertyChanged(nameof(IsValid)));
     }
+
+    public bool IsValid
+        => IsValidMatchDetails();
 
     public ICommand SaveMatchCommand { get; init; }
 
@@ -70,7 +73,7 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
 
     private async Task SaveMatchAsync()
     {
-        if (!IsValidMatchDetails())
+        if (!IsValid)
             return;
 
         // TODO: Handle match edit
@@ -94,9 +97,9 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
 
     private bool IsValidMatchDetails()
     {
-        if (AwayTeamName is null ||
-            HomeScore is null || AwayScore is null ||
-            KickOffDate is null || KickOffTime is null)
+        if (string.IsNullOrWhiteSpace(AwayTeamName) || AwayTeamName.Length < 3 ||
+            !HomeScore.HasValue || !AwayScore.HasValue ||
+            !KickOffDate.HasValue || !KickOffTime.HasValue)
         {
             return false;
         }

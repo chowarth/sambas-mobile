@@ -74,8 +74,11 @@ internal class MatchListPageViewModel : BaseViewModel
     {
         if (await _store.Remove<Match>(match.Id))
         {
-            MatchGroupings.First(g => g.Contains(match))
-                .Remove(match);
+            var grouping = MatchGroupings.First(g => g.Contains(match));
+            grouping.Remove(match);
+
+            if (grouping.Count == 0)
+                MatchGroupings.Remove(grouping);
         }
     }
 }

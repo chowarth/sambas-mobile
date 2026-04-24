@@ -70,6 +70,8 @@ public static class MauiProgram
         // exists in both UXDivers.Popups.Maui and CommunityToolkit.Maui.
         UXDivers.Popups.Maui.ServiceCollectionExtensions
             .AddTransientPopup<EditMatchDetailsPopup, EditMatchDetailsPopupViewModel>(services);
+        UXDivers.Popups.Maui.ServiceCollectionExtensions
+            .AddTransientPopup<EditTournamentDetailsPopup, EditTournamentDetailsPopupViewModel>(services);
 
         return services;
     }

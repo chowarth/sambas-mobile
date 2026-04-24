@@ -38,6 +38,7 @@
     <Style
         x:Key="FabButton"
         TargetType="Button">
+        <Setter Property="Shadow" Value="4, 4, 8, Black 0.25" />
         <Setter Property="FontSize" Value="24" />
         <Setter Property="CornerRadius" Value="24" />
         <Setter Property="WidthRequest" Value="48" />

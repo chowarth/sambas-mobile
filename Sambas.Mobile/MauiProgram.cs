@@ -25,6 +25,7 @@ public static class MauiProgram
                 .Add<StartupPage, StartupPageViewModel>(registerRoute: false)
                 .Add<MatchListPage, MatchListPageViewModel>(registerRoute: false)
                 .Add<TournamentListPage, TournamentListPageViewModel>(registerRoute: false)
+                .Add<TournamentDetailsPage, TournamentDetailsPageViewModel>()
             )
             .UseMauiCommunityToolkit()
             .UseUXDiversPopups()
@@ -122,7 +123,7 @@ public static class MauiProgram
 
 // 'This operation requires a JsonTypeInfo<Match>. Use the Query<T>(JsonTypeInfo<T>) overload.'
 // If AppJsonContext is used then there is no error, the docs don't mention anything about it for the default
-// set up, so why is it required in this case? Is it because of the use of OrderByDescending?
+// set up, so why is it required in this case? Is it because of the use of Query or OrderByDescending?
 // I need to understand the underlying reason for this error and how the AppJsonContext resolves it.
 
 // See: https://shinylib.net/data/documentdb/aot/#_top

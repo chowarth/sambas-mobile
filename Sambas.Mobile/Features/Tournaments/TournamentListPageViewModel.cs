@@ -3,6 +3,7 @@ using System.Windows.Input;
 using Microsoft.Extensions.Logging;
 using Sambas.Mobile.Models;
 using Sambas.Mobile.Mvvm;
+using Shiny;
 using Shiny.DocumentDb;
 using UXDivers.Popups.Services;
 
@@ -11,27 +12,32 @@ namespace Sambas.Mobile.Features.Tournaments;
 internal class TournamentListPageViewModel : BaseViewModel
 {
     private readonly IDocumentStore _store;
+    private readonly INavigator _navigator;
     private readonly IPopupService _popupService;
 
     public ObservableCollection<DateGrouping<Tournament>> TournamentGroupings
     {
         get;
         set => SetProperty(ref field, value);
-    } = new ObservableCollection<DateGrouping<Tournament>>();
+    } = [];
 
     public ICommand AddTournamentCommand { get; init; }
+    public ICommand ViewTournamentCommand { get; init; }
     public ICommand DeleteTournamentCommand { get; init; }
 
     public TournamentListPageViewModel(
         IDocumentStore store,
+        INavigator navigator,
         IPopupService popupService,
         ILogger<TournamentListPageViewModel> logger)
         : base(logger)
     {
         _store = store;
+        _navigator = navigator;
         _popupService = popupService;
 
         AddTournamentCommand = new Command(async () => await AddTournamentAsync());
+        ViewTournamentCommand = new Command<Tournament>(async (t) => await ViewTournamentAsync(t));
         DeleteTournamentCommand = new Command<Tournament>(async (t) => await DeleteTournamentAsync(t));
     }
 
@@ -68,6 +74,13 @@ internal class TournamentListPageViewModel : BaseViewModel
         var newTournament = await _popupService.PushAsync<EditTournamentDetailsPopup, Tournament>();
         if (newTournament is not null)
             await LoadTournaments();
+    }
+
+    private async Task ViewTournamentAsync(Tournament tournament)
+    {
+        await _navigator.NavigateTo<TournamentDetailsPageViewModel>(
+            vm => vm.TournamentId = tournament.Id
+        );
     }
 
     private async Task DeleteTournamentAsync(Tournament tournament)

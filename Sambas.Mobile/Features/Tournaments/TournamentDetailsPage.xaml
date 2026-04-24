@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:matches="clr-namespace:Sambas.Mobile.Features.Matches"
+    x:Class="Sambas.Mobile.Features.Tournaments.TournamentDetailsPage"
+    Shell.PresentationMode="ModalNotAnimated">
+
+    <Grid>
+        <CollectionView
+            ItemsSource="{Binding Matches}">
+            <CollectionView.Header>
+                <VerticalStackLayout
+                    Padding="16"
+                    Margin="0,0,0,8"
+                    BackgroundColor="{StaticResource LightBackgroundCard}">
+                    <Label
+                        Style="{StaticResource LabelSemibold}"
+                        FontSize="24"
+                        Text="{Binding Tournament.Name}"/>
+                    <Label
+                        Style="{StaticResource LabelSemibold}"
+                        FontSize="18"
+                        Text="{Binding Tournament.StartDate, StringFormat='{0:d}'}"/>
+                </VerticalStackLayout>
+            </CollectionView.Header>
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <matches:MatchOverviewView/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button
+            Text="+"
+            Style="{StaticResource FabButton}"
+            Margin="16"
+            VerticalOptions="End"
+            HorizontalOptions="End"
+            Command="{Binding AddMatchCommand}"/>
+    </Grid>
+
+</ContentPage>

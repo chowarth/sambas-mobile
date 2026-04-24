@@ -37,7 +37,15 @@
                                     CommandParameter="{Binding .}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
-                        <local:TournamentOverviewView />
+                        <local:TournamentOverviewView>
+                            <local:TournamentOverviewView.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding x:DataType='local:TournamentListPageViewModel',
+                                        Source={RelativeSource AncestorType={x:Type local:TournamentListPageViewModel}},
+                                        Path=ViewTournamentCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </local:TournamentOverviewView.GestureRecognizers>
+                        </local:TournamentOverviewView>
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

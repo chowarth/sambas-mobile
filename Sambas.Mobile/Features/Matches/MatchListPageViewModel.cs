@@ -17,7 +17,7 @@ internal class MatchListPageViewModel : BaseViewModel
     {
         get;
         set => SetProperty(ref field, value);
-    } = new ObservableCollection<DateGrouping<Match>>();
+    } = [];
 
     public ICommand AddMatchCommand { get; init; }
     public ICommand DeleteMatchCommand { get; init; }

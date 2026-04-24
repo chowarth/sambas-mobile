@@ -13,14 +13,14 @@ internal class MatchListPageViewModel : BaseViewModel
     private readonly IDocumentStore _store;
     private readonly IPopupService _popupService;
 
-    public ICommand AddMatchCommand { get; init; }
-    public ICommand DeleteMatchCommand { get; init; }
-
-    public ObservableCollection<MatchGrouping> MatchGroupings
+    public ObservableCollection<DateGrouping<Match>> MatchGroupings
     {
         get;
         set => SetProperty(ref field, value);
-    } = new ObservableCollection<MatchGrouping>();
+    } = new ObservableCollection<DateGrouping<Match>>();
+
+    public ICommand AddMatchCommand { get; init; }
+    public ICommand DeleteMatchCommand { get; init; }
 
     public MatchListPageViewModel(
         IDocumentStore store,
@@ -51,7 +51,7 @@ internal class MatchListPageViewModel : BaseViewModel
             .GroupBy(x => new { x.KickOff.Date.Year, x.KickOff.Date.Month })
             .OrderByDescending(g => g.Key.Year)
             .ThenByDescending(g => g.Key.Month)
-            .Select(g => new MatchGrouping(
+            .Select(g => new DateGrouping<Match>(
                 // Dummy date for group heading, we only care about year & month.
                 new DateTime(g.Key.Year, g.Key.Month, 1),
                 g.OrderByDescending(m => m.KickOff.Date))
@@ -59,7 +59,7 @@ internal class MatchListPageViewModel : BaseViewModel
 
         MatchGroupings.Clear();
 
-        foreach (MatchGrouping group in groups)
+        foreach (var group in groups)
             MatchGroupings.Add(group);
     }
 

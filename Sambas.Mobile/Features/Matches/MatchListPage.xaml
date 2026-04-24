@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:Sambas.Mobile.Controls"
-    xmlns:icons="clr-namespace:IconFont.Maui.FluentIcons;assembly=IconFont.Maui.FluentIcons"
     xmlns:local="clr-namespace:Sambas.Mobile.Features.Matches"
     x:Class="Sambas.Mobile.Features.Matches.MatchListPage">
 
@@ -38,7 +37,7 @@
                                     CommandParameter="{Binding .}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
-                        <local:MatchOverview/>
+                        <local:MatchOverviewView/>
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

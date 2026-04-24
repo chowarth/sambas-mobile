@@ -75,6 +75,9 @@
 	  <Compile Update="Features\Matches\MatchListPage.xaml.cs">
 	    <DependentUpon>MatchListPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Features\Matches\MatchOverviewView.xaml.cs">
+	    <DependentUpon>MatchOverviewView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Features\Tournaments\TournamentListPage.xaml.cs">
 	    <DependentUpon>TournamentListPage.xaml</DependentUpon>
 	  </Compile>
@@ -111,7 +114,7 @@
 	  <MauiXaml Update="Features\Matches\MatchListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Features\Matches\MatchOverview.xaml">
+	  <MauiXaml Update="Features\Matches\MatchOverviewView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Features\Startup\StartupPage.xaml">
@@ -124,6 +127,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="AppStartupShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Features\Tournaments\TournamentOverviewView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\ButtonStyles.xaml">

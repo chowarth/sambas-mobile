@@ -127,4 +127,5 @@ public static class MauiProgram
 
 // See: https://shinylib.net/data/documentdb/aot/#_top
 [JsonSerializable(typeof(Models.Match))]
+[JsonSerializable(typeof(Models.Tournament))]
 public partial class AppJsonContext : JsonSerializerContext;

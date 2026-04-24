@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Sambas.Mobile.Features.Tournaments.TournamentOverviewView">
+
+    <Border
+        Margin="16,8"
+        Style="{StaticResource CardStyle}">
+        <Grid
+            RowSpacing="8"
+            RowDefinitions="*,*">
+            <Label
+                Grid.Row="0"
+                FontSize="18"
+                Style="{StaticResource LabelSemibold}"
+                Text="{Binding Name}"/>
+            <Label
+                Grid.Row="1"
+                Text="{Binding StartDate, StringFormat='{0:d}'}"/>
+        </Grid>
+    </Border>
+
+</ContentView>

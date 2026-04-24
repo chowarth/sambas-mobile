@@ -1,10 +1,48 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:controls="clr-namespace:Sambas.Mobile.Controls"
+    xmlns:local="clr-namespace:Sambas.Mobile.Features.Tournaments"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Sambas.Mobile.Features.Tournaments.TournamentListPage">
 
     <Grid>
+        <CollectionView
+            IsGrouped="True"
+            ItemsSource="{Binding TournamentGroupings}">
+            <!-- TODO:
+                Empty view
+                Swipe to edit
+            -->
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ContentView>
+                        <Label
+                            Margin="16,8"
+                            Style="{StaticResource LabelSemibold}"
+                            Text="{Binding Timestamp, StringFormat= '{0:Y}'}"/>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView Threshold="95">
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Reveal">
+                                <controls:SwipeItemControl
+                                    Style="{StaticResource DeleteAction}"
+                                    Command="{Binding x:DataType='local:TournamentListPageViewModel',
+                                        Source={RelativeSource AncestorType={x:Type local:TournamentListPageViewModel}},
+                                        Path=DeleteTournamentCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <local:TournamentOverviewView />
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
         <Button
             Text="+"
             Style="{StaticResource FabButton}"

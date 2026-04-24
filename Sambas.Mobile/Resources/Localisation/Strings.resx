@@ -123,8 +123,8 @@
   <data name="DateLabel" xml:space="preserve">
     <value>Date</value>
   </data>
-  <data name="EditMatchDetails_Title" xml:space="preserve">
-    <value>Edit Match Details</value>
+  <data name="MatchDetails_Title" xml:space="preserve">
+    <value>Match Details</value>
   </data>
   <data name="HomeLabel" xml:space="preserve">
     <value>Home</value>
@@ -132,8 +132,8 @@
   <data name="KickOffLabel" xml:space="preserve">
     <value>Kick-Off</value>
   </data>
-  <data name="SaveMatchButton" xml:space="preserve">
-    <value>Save Match</value>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="ScoreLabel" xml:space="preserve">
     <value>Score</value>
@@ -152,5 +152,17 @@
   </data>
   <data name="VersusLabel_Short" xml:space="preserve">
     <value>vs</value>
+  </data>
+  <data name="TournamentDetails_Title" xml:space="preserve">
+    <value>Tournament Details</value>
+  </data>
+  <data name="NameLabel" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="StartDateLabel" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="EndDateLabel" xml:space="preserve">
+    <value>End Date</value>
   </data>
 </root>

@@ -79,11 +79,11 @@ namespace Sambas.Mobile.Resources.Localisation {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Match Details.
+        ///   Looks up a localized string similar to End Date.
         /// </summary>
-        internal static string EditMatchDetails_Title {
+        internal static string EndDateLabel {
             get {
-                return ResourceManager.GetString("EditMatchDetails_Title", resourceCulture);
+                return ResourceManager.GetString("EndDateLabel", resourceCulture);
             }
         }
         
@@ -106,11 +106,29 @@ namespace Sambas.Mobile.Resources.Localisation {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save Match.
+        ///   Looks up a localized string similar to Match Details.
         /// </summary>
-        internal static string SaveMatchButton {
+        internal static string MatchDetails_Title {
             get {
-                return ResourceManager.GetString("SaveMatchButton", resourceCulture);
+                return ResourceManager.GetString("MatchDetails_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string NameLabel {
+            get {
+                return ResourceManager.GetString("NameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string SaveButton {
+            get {
+                return ResourceManager.GetString("SaveButton", resourceCulture);
             }
         }
         
@@ -120,6 +138,15 @@ namespace Sambas.Mobile.Resources.Localisation {
         internal static string ScoreLabel {
             get {
                 return ResourceManager.GetString("ScoreLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Date.
+        /// </summary>
+        internal static string StartDateLabel {
+            get {
+                return ResourceManager.GetString("StartDateLabel", resourceCulture);
             }
         }
         
@@ -156,6 +183,15 @@ namespace Sambas.Mobile.Resources.Localisation {
         internal static string TimeLabel {
             get {
                 return ResourceManager.GetString("TimeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tournament Details.
+        /// </summary>
+        internal static string TournamentDetails_Title {
+            get {
+                return ResourceManager.GetString("TournamentDetails_Title", resourceCulture);
             }
         }
         

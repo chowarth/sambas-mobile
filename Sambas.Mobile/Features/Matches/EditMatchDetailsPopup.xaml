@@ -15,7 +15,7 @@
         Style="{StaticResource CardStyle}">
         <VerticalStackLayout>
             <Label
-                Text="{x:Static i18n:Strings.EditMatchDetails_Title}"
+                Text="{x:Static i18n:Strings.MatchDetails_Title}"
                 FontSize="18"
                 Style="{StaticResource LabelSemibold}"/>
             <!-- Teams Section -->
@@ -139,7 +139,7 @@
             </Grid>
 
             <Button
-                Text="{x:Static i18n:Strings.SaveMatchButton}"
+                Text="{x:Static i18n:Strings.SaveButton}"
                 VerticalOptions="End"
                 Command="{Binding SaveMatchCommand}"
                 IsEnabled="{Binding IsValid}"/>

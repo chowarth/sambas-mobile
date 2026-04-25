@@ -69,12 +69,16 @@ internal class TournamentDetailsPageViewModel : BaseViewModel
         if (newMatch is null)
             return;
 
-        Tournament!.AddMatch(newMatch);
+        Tournament!.Matches.Add(newMatch);
         await _store.Update(Tournament);
         Matches.Add(newMatch);
     }
 
     private async Task DeleteMatchAsync(Match match)
     {
+        // TODO:
+        // Remove match from Matches
+        // Remove match from Tournament
+        // Update tournament in database
     }
 }

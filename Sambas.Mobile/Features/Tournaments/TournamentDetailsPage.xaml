@@ -10,18 +10,28 @@
         <CollectionView
             ItemsSource="{Binding Matches}">
             <CollectionView.Header>
-                <VerticalStackLayout
-                    Padding="16"
-                    Margin="0,0,0,8"
-                    BackgroundColor="{StaticResource LightBackgroundCard}">
+                <VerticalStackLayout>
+                    <Border
+                        Style="{StaticResource CardStyle}">
+                        <VerticalStackLayout
+                            Padding="16"
+                            Margin="0,0,0,8"
+                            BackgroundColor="{StaticResource LightBackgroundCard}">
+                            <Label
+                                Style="{StaticResource LabelSemibold}"
+                                FontSize="24"
+                                Text="{Binding Tournament.Name}"/>
+                            <Label
+                                Style="{StaticResource LabelSemibold}"
+                                FontSize="18"
+                                Text="{Binding Tournament.StartDate, StringFormat='{0:d}'}"/>
+                        </VerticalStackLayout>
+                    </Border>
                     <Label
-                        Style="{StaticResource LabelSemibold}"
-                        FontSize="24"
-                        Text="{Binding Tournament.Name}"/>
-                    <Label
-                        Style="{StaticResource LabelSemibold}"
+                        Margin="16, 0, 16, 16"
+                        Text="Matches"
                         FontSize="18"
-                        Text="{Binding Tournament.StartDate, StringFormat='{0:d}'}"/>
+                        Style="{StaticResource LabelSemibold}"/>
                 </VerticalStackLayout>
             </CollectionView.Header>
             

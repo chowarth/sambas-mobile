@@ -61,7 +61,8 @@ internal class EditTournamentDetailsPopupViewModel : BasePopupViewModel
         var tournament = new Tournament(
             TournamentName!,
             DateOnly.FromDateTime(StartDate!.Value),
-            DateOnly.FromDateTime(EndDate!.Value)
+            DateOnly.FromDateTime(EndDate!.Value),
+            []
         );
         await _store.Insert(tournament);
 

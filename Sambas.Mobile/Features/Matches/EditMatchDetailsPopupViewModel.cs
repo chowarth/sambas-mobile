@@ -10,7 +10,7 @@ namespace Sambas.Mobile.Features.Matches;
 internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
 {
     private readonly IDocumentStore _store;
-    private readonly IPopupService _popupService;
+    protected readonly IPopupService _popupService;
 
     public Match? Match
     {
@@ -71,7 +71,7 @@ internal class EditMatchDetailsPopupViewModel : BasePopupViewModel
         SaveMatchCommand = new Command(async () => await SaveMatchAsync());
     }
 
-    private async Task SaveMatchAsync()
+    protected virtual async Task SaveMatchAsync()
     {
         if (!IsValid)
             return;

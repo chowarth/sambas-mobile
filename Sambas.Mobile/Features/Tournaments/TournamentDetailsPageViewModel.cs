@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Microsoft.Extensions.Logging;
-using Sambas.Mobile.Features.Matches;
 using Sambas.Mobile.Models;
 using Sambas.Mobile.Mvvm;
 using Shiny.DocumentDb;
@@ -66,7 +65,7 @@ internal class TournamentDetailsPageViewModel : BaseViewModel
 
     private async Task AddMatchAsync()
     {
-        var newMatch = await _popupService.PushAsync<EditMatchDetailsPopup, Match>();
+        var newMatch = await _popupService.PushAsync<EditTournamentMatchDetailsPopup, Match>();
         if (newMatch is null)
             return;
 

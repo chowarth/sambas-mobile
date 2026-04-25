@@ -73,6 +73,8 @@ public static class MauiProgram
             .AddTransientPopup<EditMatchDetailsPopup, EditMatchDetailsPopupViewModel>(services);
         UXDivers.Popups.Maui.ServiceCollectionExtensions
             .AddTransientPopup<EditTournamentDetailsPopup, EditTournamentDetailsPopupViewModel>(services);
+        UXDivers.Popups.Maui.ServiceCollectionExtensions
+            .AddTransientPopup<EditTournamentMatchDetailsPopup, EditTournamentMatchDetailsPopupViewModel>(services);
 
         return services;
     }

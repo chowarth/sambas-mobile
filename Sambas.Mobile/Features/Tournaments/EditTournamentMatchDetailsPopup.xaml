@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<matches:EditMatchDetailsPopup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:models="clr-namespace:Sambas.Mobile.Models"
+    xmlns:matches="clr-namespace:Sambas.Mobile.Features.Matches"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Sambas.Mobile.Features.Tournaments.EditTournamentMatchDetailsPopup">
+    
+    <!-- No custom UI needed -->
+    
+</matches:EditMatchDetailsPopup>

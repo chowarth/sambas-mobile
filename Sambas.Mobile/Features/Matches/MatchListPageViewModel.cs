@@ -8,7 +8,7 @@ using UXDivers.Popups.Services;
 
 namespace Sambas.Mobile.Features.Matches;
 
-internal class MatchListPageViewModel : BaseViewModel
+internal sealed class MatchListPageViewModel : BaseViewModel
 {
     private readonly IDocumentStore _store;
     private readonly IPopupService _popupService;

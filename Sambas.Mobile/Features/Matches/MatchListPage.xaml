@@ -41,6 +41,10 @@
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <ContentView
+                    HeightRequest="75"/>
+            </CollectionView.Footer>
         </CollectionView>
 
         <Button

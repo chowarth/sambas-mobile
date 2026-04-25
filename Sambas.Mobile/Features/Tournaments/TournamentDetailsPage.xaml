@@ -14,9 +14,7 @@
                     <Border
                         Style="{StaticResource CardStyle}">
                         <VerticalStackLayout
-                            Padding="16"
-                            Margin="0,0,0,8"
-                            BackgroundColor="{StaticResource LightBackgroundCard}">
+                            Padding="16">
                             <Label
                                 Style="{StaticResource LabelSemibold}"
                                 FontSize="24"

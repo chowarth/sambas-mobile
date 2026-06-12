@@ -2,6 +2,8 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Sambas.Mobile.Controls"
+    xmlns:local="clr-namespace:Sambas.Mobile.Features.Tournaments"
     xmlns:matches="clr-namespace:Sambas.Mobile.Features.Matches"
     x:Class="Sambas.Mobile.Features.Tournaments.TournamentDetailsPage"
     Shell.PresentationMode="ModalNotAnimated">
@@ -35,9 +37,25 @@
             
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <matches:MatchOverviewView/>
+                    <SwipeView Threshold="95">
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Reveal">
+                                <controls:SwipeItemControl
+                                    Style="{StaticResource DeleteAction}"
+                                    Command="{Binding x:DataType='local:TournamentDetailsPageViewModel',
+                                        Source={RelativeSource AncestorType={x:Type local:TournamentDetailsPageViewModel}},
+                                        Path=DeleteMatchCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <matches:MatchOverviewView/>
+                    </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <ContentView
+                    HeightRequest="75"/>
+            </CollectionView.Footer>
         </CollectionView>
 
         <Button

@@ -76,9 +76,8 @@ internal class TournamentDetailsPageViewModel : BaseViewModel
 
     private async Task DeleteMatchAsync(Match match)
     {
-        // TODO:
-        // Remove match from Matches
-        // Remove match from Tournament
-        // Update tournament in database
+        Tournament!.Matches.Remove(match);
+        await _store.Update(Tournament);
+        Matches.Remove(match);
     }
 }
